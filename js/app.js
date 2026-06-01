@@ -10,10 +10,12 @@ import { initCarousel } from './features/carousel.js';
 import { initDice } from './features/dice.js';
 import { initFitTitle } from './features/fit-title.js';
 import { initNav } from './features/nav.js';
+import { initScroll } from './features/scroll.js';
 
 function boot() {
   initToggle();
   initNav();
+  initScroll();
   initHero();
   initClock();
   initMarquee();

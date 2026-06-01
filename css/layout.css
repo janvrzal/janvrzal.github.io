@@ -2,19 +2,38 @@
    layout.css — structural layout (nav, hero, sections, footer)
    ============================================================ */
 
+/* ---------- SCROLL PROGRESS ---------- */
+.scroll-bar{
+  position:fixed;top:0;left:0;z-index:calc(var(--z-nav) + 1);
+  height:2px;width:0;background:var(--c-amber);
+  transition:width .08s linear;will-change:width;
+}
+
 /* ---------- NAV ---------- */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);
   display:flex;align-items:center;justify-content:space-between;
   padding:18px var(--pad-x);
-  background:linear-gradient(var(--c-bg), rgba(12,11,8,0));
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), backdrop-filter var(--dur-fast);
   font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:var(--ls-mono);
+}
+/* po odscrollování z hero: jemné teplé sklo + hairline, ať je menu čitelné */
+.nav.is-scrolled{
+  background:rgba(12,11,8,.72);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom-color:var(--c-line);
 }
 .nav__logo{font-family:var(--f-display);font-weight:var(--fw-black);font-size:17px;
   letter-spacing:0;text-decoration:none}
 .nav__links{display:flex;gap:26px}
-.nav__links a{color:var(--c-mute);text-decoration:none;transition:color var(--dur-fast)}
+.nav__links a{color:var(--c-mute);text-decoration:none;transition:color var(--dur-fast);position:relative}
 .nav__links a:hover{color:var(--c-ink)}
+/* aktivní sekce (scroll-spy) */
+.nav__links a.is-current{color:var(--c-ink)}
+.nav__links a.is-current::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--c-amber);
+}
 
 /* hamburger — skrytý na desktopu */
 .nav__burger{display:none;flex-direction:column;justify-content:center;gap:5px;
@@ -72,7 +91,7 @@
   display:inline-block;font-family:var(--f-display);font-weight:var(--fw-black);
   font-variation-settings:'wdth' 118;font-size:var(--fs-bleed);line-height:.82;
   letter-spacing:var(--ls-tight);color:var(--c-ink);text-transform:uppercase;
-  white-space:nowrap;padding:.16em 0 0 var(--pad-x); /* .16em horní vzduch = nesekne diakritiku */
+  white-space:nowrap;padding:.26em 0 0 var(--pad-x); /* horní vzduch = nesekne diakritiku (i kroužek nad Ů) */
 }
 .section__idx{font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:var(--ls-wide);
   color:var(--c-amber);margin-bottom:20px}
