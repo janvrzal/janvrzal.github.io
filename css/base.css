@@ -15,6 +15,20 @@ a{color:inherit}
 button{font:inherit}
 canvas{display:block}
 
+/* viditelný focus jen pro klávesnici */
+:focus-visible{outline:2px solid var(--c-amber);outline-offset:3px;border-radius:1px}
+:focus:not(:focus-visible){outline:none}
+
+/* skip-link — skrytý, dokud na něj uživatel netabne */
+.skip{
+  position:fixed;top:10px;left:10px;z-index:calc(var(--z-nav) + 2);
+  transform:translateY(-160%);transition:transform var(--dur-fast) var(--ease);
+  background:var(--c-amber);color:var(--c-amber-ink);text-decoration:none;
+  font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:var(--ls-mono);
+  padding:10px 16px;
+}
+.skip:focus{transform:none}
+
 /* obsahový kontejner */
 .wrap{
   width:100%;

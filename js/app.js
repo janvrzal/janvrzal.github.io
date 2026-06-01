@@ -26,6 +26,16 @@ function boot() {
   initDice();
   initFitTitle();
   setLang('cz'); // počáteční jazyk + první notifikace widgetům
+  hello();
+}
+
+/* malý vzkaz pro zvědavé, co otevřou konzoli */
+function hello() {
+  const amber = 'color:#f6a700;font-weight:bold';
+  const mute = 'color:#857e70';
+  console.log('%cVRZAL', 'color:#f6a700;font-family:monospace;font-weight:bold;font-size:34px');
+  console.log('%cKoukáš pod kapotu? Dobře. Tohle je ruční práce — žádný framework, žádný build step.', mute);
+  console.log('%c→ Hledám stáž: data / AI / automation.%c  github.com/janvrzal', amber, mute);
 }
 
 if (document.readyState === 'loading') {
