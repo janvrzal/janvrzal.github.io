@@ -1,0 +1,54 @@
+/* ============================================================
+   components.css — reusable UI components
+   ============================================================ */
+
+/* ---------- LANG TOGGLE ---------- */
+.lang{display:flex;gap:3px;align-items:center;color:var(--c-mute)}
+.lang button{background:none;border:none;color:var(--c-mute);cursor:pointer;
+  padding:3px 5px;letter-spacing:var(--ls-mono)}
+.lang button.is-active{color:var(--c-amber)}
+
+/* ---------- CTA BUTTON (portál ven) ---------- */
+.cta{
+  display:inline-flex;align-items:center;gap:11px;justify-self:start;white-space:nowrap;
+  font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:.06em;text-decoration:none;
+  padding:16px 26px;border:1px solid var(--c-ink);transition:background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.cta:hover{background:var(--c-amber);border-color:var(--c-amber);color:var(--c-amber-ink)}
+.cta__soon{color:var(--c-mute);font-size:10px;letter-spacing:.1em}
+
+/* ---------- FACTS LIST ---------- */
+.facts{display:flex;flex-direction:column}
+.fact{padding:15px 0;border-top:1px solid var(--c-line);display:flex;gap:18px}
+.fact:last-child{border-bottom:1px solid var(--c-line)}
+.fact__k{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.14em;
+  color:var(--c-mute);flex:0 0 86px;padding-top:3px}
+.fact__v{font-size:var(--fs-fact);line-height:1.4;color:var(--c-ink)}
+.fact__v b{color:var(--c-amber);font-weight:var(--fw-bold)}
+
+/* ---------- CONTACT LINKS ---------- */
+.contact{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:38px;
+  font-family:var(--f-mono);font-size:15px;letter-spacing:.04em}
+.contact a{color:var(--c-ink);text-decoration:none;border-bottom:1px solid var(--c-line);
+  padding-bottom:3px;transition:border-color var(--dur-fast), color var(--dur-fast)}
+.contact a:hover{border-color:var(--c-amber);color:var(--c-amber)}
+.contact .soon{color:var(--c-mute);font-size:10px}
+
+/* status tečka */
+.status{display:flex;align-items:center;gap:9px;color:var(--c-ink)}
+.status__dot{width:7px;height:7px;border-radius:50%;background:var(--c-amber);animation:pulse 2.4s infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(246,167,0,.45)}
+  70%{box-shadow:0 0 0 12px rgba(246,167,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(246,167,0,0)}
+}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);
+  padding:18px 0;margin-bottom:60px}
+.marquee__track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee span{font-family:var(--f-display);font-weight:var(--fw-black);font-size:34px;
+  text-transform:uppercase;letter-spacing:-.01em;color:var(--c-ink);padding-right:.4em;white-space:nowrap}
+.marquee span.is-outline{color:transparent;-webkit-text-stroke:1.5px var(--c-amber)}
+@keyframes marquee{to{transform:translateX(-50%)}}

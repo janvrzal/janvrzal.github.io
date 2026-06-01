@@ -1,0 +1,29 @@
+/* ============================================================
+   app.js — vstupní bod. Importuje moduly a spustí je.
+   Přidání featury = 1 import + 1 init() volání zde.
+   ============================================================ */
+import { initToggle, setLang } from './i18n.js';
+import { initHero, initClock, initMarquee, initReveal } from './features/ui.js';
+import { initMcda } from './features/mcda.js';
+import { initPipeline } from './features/pipeline.js';
+import { initCarousel } from './features/carousel.js';
+import { initDice } from './features/dice.js';
+
+function boot() {
+  initToggle();
+  initHero();
+  initClock();
+  initMarquee();
+  initReveal();
+  initMcda();
+  initPipeline();
+  initCarousel();
+  initDice();
+  setLang('cz'); // počáteční jazyk + první notifikace widgetům
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  boot();
+}

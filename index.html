@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jan Vrzal — designer, developer, AI engineer</title>
+  <meta name="description" content="Jan Vrzal — student aplikované informatiky, builder datových a AI nástrojů, worldbuilder a dungeon master z Prahy.">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- styles (pořadí: tokens → base → layout → components → features) -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/features.css">
+
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Hlavní navigace">
+    <a href="#top" class="nav__logo">JV</a>
+    <div class="nav__links">
+      <a href="#about"    data-cz="O mně"    data-en="About"></a>
+      <a href="#academia" data-cz="Výzkum"   data-en="Research"></a>
+      <a href="#career"   data-cz="Práce"    data-en="Work"></a>
+      <a href="#arthea">Arthea</a>
+      <a href="#table"    data-cz="Stůl"     data-en="Table"></a>
+      <a href="#contact"  data-cz="Kontakt"  data-en="Contact"></a>
+    </div>
+    <div class="lang" aria-label="Jazyk">
+      <button data-lang-btn="cz" class="is-active">CZ</button><span>/</span><button data-lang-btn="en">EN</button>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow" data-cz="JAN VRZAL — STUDENT · BUILDER · PRAHA" data-en="JAN VRZAL — STUDENT · BUILDER · PRAGUE"></p>
+      </div>
+      <h1 class="hero__name">VRZAL</h1>
+      <div class="hero__inner">
+        <p class="hero__build">
+          <span class="verb" data-cz="Stavím" data-en="I build"></span>
+          <span class="swap" data-hero-swap></span>
+        </p>
+        <p class="hero__cue"><span class="ln"></span><span data-cz="scrolluj dolů" data-en="scroll down"></span></p>
+      </div>
+    </header>
+
+    <!-- ============ 01 ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-t">
+      <div class="section__title reveal"><span id="about-t" data-cz="AHOJ" data-en="HELLO"></span></div>
+      <div class="wrap">
+        <p class="section__idx reveal">01 — <span data-cz="KDO JSEM" data-en="WHO I AM"></span></p>
+        <p class="section__lead reveal" style="max-width:32ch"
+          data-cz="Druhák Aplikované informatiky na FIS VŠE. Píšu kód, navrhuju rozhraní a stavím datové a AI nástroje. Když zrovna nestavím software, stavím fiktivní světy nebo vedu kampaně u stolu. Řemeslo beru vážně — sebe ne až tak."
+          data-en="Second-year Applied Informatics student at FIS VŠE in Prague. I write code, design interfaces and build data & AI tools. When I'm not building software, I'm building fictional worlds or running tabletop campaigns. Serious about the craft — less so about myself."></p>
+        <p class="reveal" style="margin-top:30px;font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:.14em;color:var(--c-mute)">
+          <span data-cz="MÍSTNÍ ČAS V PRAZE" data-en="LOCAL TIME IN PRAGUE"></span> — <span data-clock style="color:var(--c-amber)">--:--:--</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 02 ACADEMIA ============ -->
+    <section class="section" id="academia" aria-labelledby="academia-t">
+      <div class="section__title reveal"><span id="academia-t" data-cz="VÝZKUM" data-en="RESEARCH"></span></div>
+      <div class="wrap">
+        <p class="section__idx reveal">02 — <span data-cz="AKADEMIKA & VÝZKUM" data-en="ACADEMIA & RESEARCH"></span></p>
+        <p class="section__lead reveal"
+          data-cz="Bakalářka o LLM datových pipeline a benchmarkingu MCDA solverů — most mezi velkými jazykovými modely a vícekriteriálním rozhodováním."
+          data-en="A bachelor's thesis on LLM-driven data pipelines and benchmarking MCDA solvers — bridging large language models and multi-criteria decision analysis."></p>
+
+        <div class="section__feature reveal">
+          <div class="mcda">
+            <div>
+              <p class="mcda__h" data-cz="ZKUS SI TO — VÁHY KRITÉRIÍ" data-en="TRY IT — CRITERIA WEIGHTS"></p>
+              <div class="crit">
+                <label><span data-cz="Přesnost" data-en="Accuracy"></span><span class="pct" data-mcda-pct>33%</span></label>
+                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Accuracy weight">
+              </div>
+              <div class="crit">
+                <label><span data-cz="Rychlost" data-en="Speed"></span><span class="pct" data-mcda-pct>33%</span></label>
+                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Speed weight">
+              </div>
+              <div class="crit">
+                <label><span data-cz="Robustnost" data-en="Robustness"></span><span class="pct" data-mcda-pct>33%</span></label>
+                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Robustness weight">
+              </div>
+            </div>
+            <div>
+              <p class="mcda__h" data-cz="ŽEBŘÍČEK SOLVERŮ (živě)" data-en="SOLVER RANKING (live)"></p>
+              <div class="ranks" data-mcda-ranks></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section__tail reveal">
+          <div class="facts">
+            <div class="fact"><span class="fact__k">THESIS</span><span class="fact__v"><b>LLM-driven Data Pipeline & Benchmark Tool for MCDA</b> — benchmark UTA-NM vs. Ghaderi · doc. Tomáš Kliegr · FIS VŠE · 2027</span></div>
+            <div class="fact"><span class="fact__k">NEXT</span><span class="fact__v" data-cz="Navazující magistr UIDS (specializace HAI) — od 2027" data-en="UIDS master's degree (HAI specialization) — from 2027"></span></div>
+            <div class="fact"><span class="fact__k">WORK</span><span class="fact__v" data-cz="CNN sentiment analysis (Keras/TF) · ML pipeline pro predikci dropoutu · český NLP chatbot (Rasa)" data-en="CNN sentiment analysis (Keras/TF) · ML pipeline for dropout prediction · Czech NLP chatbot (Rasa)"></span></div>
+          </div>
+          <a class="cta" href="#"><span data-cz="Výzkum" data-en="Research"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 CAREER ============ -->
+    <section class="section" id="career" aria-labelledby="career-t">
+      <div class="section__title reveal"><span id="career-t" data-cz="PRÁCE" data-en="WORK"></span></div>
+      <div class="wrap">
+        <p class="section__idx reveal">03 — <span data-cz="PROFESE & KARIÉRA" data-en="PROFESSION & CAREER"></span></p>
+        <p class="section__lead reveal"
+          data-cz="Učím děti dělat hry — a hledám stáž, kde budu stavět datové a AI nástroje v praxi. Píšu pipeline, co z chaosu dělají čistá, validovaná data."
+          data-en="I teach kids to make games — and I'm after an internship building data & AI tools in production. I write pipelines that turn messy input into clean, validated data."></p>
+
+        <div class="section__feature reveal">
+          <div class="pipe">
+            <canvas data-pipeline></canvas>
+            <p class="pipe__cap"><b>DATA PIPELINE</b> · <span data-cz="ingest → validace (Pydantic) → transform" data-en="ingest → validation (Pydantic) → transform"></span></p>
+          </div>
+        </div>
+
+        <div class="section__tail reveal">
+          <div class="facts">
+            <div class="fact"><span class="fact__k">WORK</span><span class="fact__v" data-cz="Game Development Instructor @ DDM Praha 7 (2025–dosud) · organizátor 4FIS Game Jamu (2026)" data-en="Game Development Instructor @ DDM Praha 7 (2025–now) · 4FIS Game Jam organizer (2026)"></span></div>
+            <div class="fact"><span class="fact__k">PROJECTS</span><span class="fact__v" data-cz="LLM Cutting Stock Optimizer (Streamlit + Pydantic) · predikce dropoutu (scikit-learn) · Power BI dashboard" data-en="LLM Cutting Stock Optimizer (Streamlit + Pydantic) · dropout prediction (scikit-learn) · Power BI dashboard"></span></div>
+            <div class="fact"><span class="fact__k">STACK</span><span class="fact__v">Python · SQL · Pandas · Pydantic · Docker · Git · scikit-learn · LLM APIs</span></div>
+            <div class="fact"><span class="fact__k">STATUS</span><span class="fact__v"><b>Open to work</b> — data / AI / automation</span></div>
+          </div>
+          <a class="cta" href="#"><span data-cz="Portfolio & CV" data-en="Portfolio & CV"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 ARTHEA ============ -->
+    <section class="section section--arthea" id="arthea" aria-labelledby="arthea-t">
+      <div class="section__title reveal"><span id="arthea-t">ARTHEA</span></div>
+      <div class="wrap">
+        <p class="section__idx reveal">04 — WORLDBUILDING</p>
+        <p class="section__lead reveal"
+          data-cz="Svět, který stavím léta. Říše, dynastie, geneticky upravené národy, vlastní časová osa — a jazyk, co teprve vzniká."
+          data-en="A world I've been building for years. Empires, dynasties, gene-engineered peoples, a custom timeline — and a language still being born."></p>
+
+        <div class="section__feature reveal">
+          <div class="caro" data-carousel>
+            <div class="caro__vp"><div class="caro__track" data-caro-track></div></div>
+            <div class="caro__ctrl">
+              <div class="caro__dots" data-caro-dots></div>
+              <div class="caro__arw">
+                <button data-caro-prev aria-label="Předchozí">←</button>
+                <button data-caro-next aria-label="Další">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="cta reveal" href="#" style="margin-top:46px"><span data-cz="Vstoupit do světa" data-en="Enter the world"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
+      </div>
+    </section>
+
+    <!-- ============ 05 TABLETOP ============ -->
+    <section class="section" id="table" aria-labelledby="table-t">
+      <div class="section__title reveal"><span id="table-t" data-cz="STŮL" data-en="TABLE"></span></div>
+      <div class="wrap">
+        <p class="section__idx reveal">05 — <span data-cz="U STOLU" data-en="AT THE TABLE"></span></p>
+        <p class="section__lead reveal"
+          data-cz="Dungeon Master na plný úvazek volného času. Vedu kampaně, stavím dobrodružství, vyprávím příběhy — a občas vyhraju Twilight Imperium."
+          data-en="A Dungeon Master in my spare time. I run campaigns, build adventures, tell stories — and occasionally win at Twilight Imperium."></p>
+
+        <div class="section__feature reveal">
+          <div class="dice">
+            <div class="die" data-die title="roll">20</div>
+            <p class="dice__res">
+              <span data-cz="HODÍ SE PRO INICIATIVU — KLIKNI NA KOSTKU" data-en="ROLL FOR INITIATIVE — CLICK THE DIE"></span>
+              <span class="dice__out" data-die-out></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="section__tail reveal">
+          <div class="facts">
+            <div class="fact"><span class="fact__k">DM</span><span class="fact__v" data-cz="Dungeons & Dragons — vlastní kampaně a světy" data-en="Dungeons & Dragons — homebrew campaigns and worlds"></span></div>
+            <div class="fact"><span class="fact__k">PLAY</span><span class="fact__v">Android: Netrunner · Twilight Imperium IV</span></div>
+          </div>
+          <a class="cta" href="#"><span data-cz="Ke stolu" data-en="Join the table"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <footer class="footer" id="contact" aria-labelledby="contact-t">
+      <div class="marquee reveal"><div class="marquee__track" data-marquee></div></div>
+      <div class="wrap">
+        <p class="section__idx reveal">06 — <span data-cz="KONTAKT" data-en="CONTACT"></span></p>
+        <h2 class="footer__h2 reveal" id="contact-t" data-cz="Pojďme něco postavit" data-en="Let's build something"></h2>
+        <div class="contact reveal">
+          <a href="mailto:honza@vrzal.cz">honza@vrzal.cz</a>
+          <a href="https://github.com/janvrzal" target="_blank" rel="noopener">github.com/janvrzal</a>
+          <a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">linkedin.com/in/jan-vrzal</a>
+          <a href="#">Threads <span class="soon">[?]</span></a>
+        </div>
+        <div class="footer__bottom reveal">
+          <span>© 2026 JAN VRZAL</span>
+          <span class="status"><span class="status__dot"></span><span data-cz="OTEVŘEN NABÍDKÁM" data-en="OPEN TO WORK"></span></span>
+          <span>PRAHA / CZ</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>

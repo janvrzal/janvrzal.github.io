@@ -1,0 +1,78 @@
+/* ============================================================
+   features.css — interactive widget styles
+   (MCDA, pipeline, carousel, dice + Arthea theme)
+   ============================================================ */
+
+/* ---------- MCDA ranking (Výzkum) ---------- */
+.mcda{display:grid;grid-template-columns:300px 1fr;gap:46px;border:1px solid var(--c-line);padding:32px}
+@media (max-width:820px){.mcda{grid-template-columns:1fr;gap:26px}}
+.mcda__h{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.16em;
+  color:var(--c-mute);font-weight:400;margin-bottom:20px}
+.crit{margin-bottom:20px}
+.crit label{display:flex;justify-content:space-between;font-family:var(--f-mono);
+  font-size:var(--fs-mono-s);letter-spacing:var(--ls-mono);color:var(--c-ink);margin-bottom:8px}
+.crit label .pct{color:var(--c-amber)}
+.crit input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;
+  background:var(--c-line);outline:none;cursor:pointer}
+.crit input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;
+  border-radius:50%;background:var(--c-amber);cursor:pointer}
+.crit input[type=range]::-moz-range-thumb{width:16px;height:16px;border:none;border-radius:50%;
+  background:var(--c-amber);cursor:pointer}
+.ranks{display:flex;flex-direction:column;gap:12px}
+.rk{display:flex;align-items:center;gap:14px;will-change:transform}
+.rk__pos{font-family:var(--f-mono);font-size:var(--fs-mono-s);color:var(--c-mute);flex:0 0 26px}
+.rk__nm{font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:.06em;flex:0 0 120px;color:var(--c-ink)}
+.rk__barwrap{flex:1;height:26px;background:rgba(239,233,221,.06);position:relative}
+.rk__bar{height:100%;background:rgba(246,167,0,.4);transition:width .55s var(--ease)}
+.rk.is-lead .rk__bar{background:var(--c-amber)}
+.rk__sc{font-family:var(--f-mono);font-size:var(--fs-mono-s);color:var(--c-ink);flex:0 0 42px;text-align:right}
+
+/* ---------- Data pipeline (Práce) ---------- */
+.pipe{border:1px solid var(--c-line);height:230px;position:relative;overflow:hidden}
+.pipe canvas{width:100%;height:100%}
+.pipe__cap{position:absolute;left:18px;bottom:14px;font-family:var(--f-mono);
+  font-size:var(--fs-mono-xs);letter-spacing:.14em;color:var(--c-mute)}
+.pipe__cap b{color:var(--c-amber);font-weight:500}
+
+/* ---------- Carousel (Arthea) ---------- */
+.section--arthea{background:var(--c-amber);color:var(--c-amber-ink);border-top:none}
+.section--arthea .section__title span{color:var(--c-amber-ink)}
+.section--arthea .section__idx{color:#3a2c0a}
+.section--arthea .section__lead{color:#241b07}
+.section--arthea .cta{border-color:var(--c-amber-ink);color:var(--c-amber-ink)}
+.section--arthea .cta:hover{background:var(--c-amber-ink);color:var(--c-amber)}
+
+.caro{border:1px solid rgba(16,12,4,.25);overflow:hidden;position:relative}
+.caro__vp{overflow:hidden}
+.caro__track{display:flex;transition:transform .5s var(--ease)}
+.caro__slide{flex:0 0 100%;padding:54px 48px;min-height:260px;
+  display:flex;flex-direction:column;justify-content:center}
+.caro__tag{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:var(--ls-wide);
+  color:#5a4710;margin-bottom:16px}
+.caro__name{font-family:var(--f-display);font-weight:var(--fw-black);font-variation-settings:'wdth' 110;
+  font-size:clamp(34px,6vw,76px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
+.caro__flavor{font-family:var(--f-body);font-weight:var(--fw-body);font-size:clamp(16px,2.2vw,24px);
+  margin-top:14px;color:#33270c;max-width:34ch}
+.caro__ctrl{display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;border-top:1px solid rgba(16,12,4,.2);font-family:var(--f-mono);font-size:var(--fs-mono)}
+.caro__dots{display:flex;gap:8px}
+.caro__dots i{width:8px;height:8px;border-radius:50%;background:rgba(16,12,4,.28);cursor:pointer;transition:background var(--dur-fast)}
+.caro__dots i.is-active{background:var(--c-amber-ink)}
+.caro__arw{display:flex;gap:6px}
+.caro__arw button{background:none;border:1px solid rgba(16,12,4,.4);color:var(--c-amber-ink);
+  width:38px;height:32px;cursor:pointer;transition:background .15s, color .15s}
+.caro__arw button:hover{background:var(--c-amber-ink);color:var(--c-amber)}
+
+/* ---------- d20 (Stůl) ---------- */
+.dice{display:flex;align-items:center;gap:46px;flex-wrap:wrap}
+.die{width:170px;height:170px;flex:0 0 auto;display:grid;place-items:center;cursor:pointer;position:relative;
+  background:var(--c-amber);color:#160f02;font-family:var(--f-display);font-weight:var(--fw-black);
+  font-size:64px;clip-path:polygon(50% 0,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%);
+  transition:transform .15s;user-select:none}
+.die:hover{transform:scale(1.04)}
+.die.is-rolling{animation:roll20 .7s linear}
+@keyframes roll20{0%{transform:rotate(0) scale(1)}50%{transform:rotate(200deg) scale(1.1)}100%{transform:rotate(360deg) scale(1)}}
+.dice__res{font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:.1em;color:var(--c-mute)}
+.dice__out{display:block;font-family:var(--f-body);font-weight:var(--fw-bold);
+  font-size:clamp(22px,4vw,40px);letter-spacing:-.01em;color:var(--c-ink);margin-top:6px}
+.dice__out.is-crit{color:var(--c-amber)}
