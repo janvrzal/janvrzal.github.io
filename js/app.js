@@ -25,8 +25,18 @@ function boot() {
   initCarousel();
   initDice();
   initFitTitle();
+  initSoon();
   setLang('cz'); // počáteční jazyk + první notifikace widgetům
   hello();
+}
+
+/* [soon] odkazy zatím nikam nevedou — ať neskáčou na začátek stránky */
+function initSoon() {
+  document.querySelectorAll('a[href="#"]').forEach(a => {
+    if (!a.querySelector('.cta__soon, .soon')) return;
+    a.setAttribute('aria-disabled', 'true');
+    a.addEventListener('click', e => e.preventDefault());
+  });
 }
 
 /* malý vzkaz pro zvědavé, co otevřou konzoli */

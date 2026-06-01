@@ -30,17 +30,6 @@ export const CONTENT = {
     ],
   },
 
-  /* carousel říší (Arthea) — popisky jsou placeholdery, klidně přepiš */
-  realms: [
-    { n: 'HYKARIE',   tag: { cz: 'ŘÍŠE',      en: 'EMPIRE' },     cz: 'Říše oceli a chladného rozumu.',   en: 'An empire of steel and cold reason.' },
-    { n: 'DYREKIE',   tag: { cz: 'TEOKRACIE', en: 'THEOCRACY' },  cz: 'Kde se víra mísí s krví.',          en: 'Where faith mingles with blood.' },
-    { n: 'ARHESIA',   tag: { cz: 'AKADEMIE',  en: 'ACADEMY' },    cz: 'Učenci, archivy, tisíc tajemství.', en: 'Scholars, archives, a thousand secrets.' },
-    { n: 'VORTHÉSIE', tag: { cz: 'KLANY',     en: 'CLANS' },      cz: 'Hory, klany, nezlomená hrdost.',    en: 'Mountains, clans, unbroken pride.' },
-    { n: 'KAMIÉRIE',  tag: { cz: 'OBCHOD',    en: 'TRADE' },      cz: 'Obchod, intriky a zlaté smlouvy.',  en: 'Trade, intrigue and golden contracts.' },
-    { n: 'RHAVDINI',  tag: { cz: 'KOČOVNÍCI', en: 'NOMADS' },     cz: 'Kočovníci pouští a hvězd.',         en: 'Nomads of deserts and stars.' },
-    { n: 'EXORIA',    tag: { cz: 'NEZNÁMO',   en: 'THE UNKNOWN' },cz: 'To, co leží za hranicí mapy.',      en: 'What lies beyond the edge of the map.' },
-  ],
-
   /* popisky stages v data pipeline (Práce) */
   pipelineStages: [
     { x: .08, cz: 'RAW',       en: 'RAW' },
@@ -52,7 +41,7 @@ export const CONTENT = {
 
   /* hlášky kostky (Stůl) */
   dice: {
-    prompt:  { cz: 'HODÍ SE PRO INICIATIVU — KLIKNI NA KOSTKU', en: 'ROLL FOR INITIATIVE — CLICK THE DIE' },
+    prompt:  { cz: 'HOĎ SI NA INICIATIVU — KLIKNI NA KOSTKU', en: 'ROLL FOR INITIATIVE — CLICK THE DIE' },
     nat20:   { cz: '✦ NAT 20 — kritický úspěch!', en: '✦ NAT 20 — critical hit!' },
     nat1:    { cz: '// nat 1… to bolelo', en: '// nat 1… that hurt' },
     rolled:  { cz: 'hodil jsi ', en: 'you rolled ' },

@@ -15,6 +15,12 @@ a{color:inherit}
 button{font:inherit}
 canvas{display:block}
 
+/* kotvy nepodjedou pod fixní navbar */
+:where(section[id], footer[id], main[id]){scroll-margin-top:72px}
+
+/* [soon] odkazy — vizuálně „ještě nejde kliknout" */
+a[aria-disabled="true"]{cursor:not-allowed}
+
 /* viditelný focus jen pro klávesnici */
 :focus-visible{outline:2px solid var(--c-amber);outline-offset:3px;border-radius:1px}
 :focus:not(:focus-visible){outline:none}

@@ -36,7 +36,12 @@ export function initScroll() {
       if (!e.isIntersecting) return;
       const hit = links.find(x => x.el === e.target);
       if (!hit) return;
-      links.forEach(x => x.a.classList.toggle('is-current', x === hit));
+      links.forEach(x => {
+        const on = x === hit;
+        x.a.classList.toggle('is-current', on);
+        if (on) x.a.setAttribute('aria-current', 'true');
+        else x.a.removeAttribute('aria-current');
+      });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
 

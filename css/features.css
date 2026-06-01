@@ -19,6 +19,8 @@
 .crit input[type=range]::-moz-range-thumb{width:16px;height:16px;border:none;border-radius:50%;
   background:var(--c-amber);cursor:pointer}
 .ranks{display:flex;flex-direction:column;gap:12px}
+.mcda__note{margin-top:16px;font-family:var(--f-mono);font-size:var(--fs-mono-xs);
+  letter-spacing:.04em;color:var(--c-mute);font-style:italic}
 .rk{display:flex;align-items:center;gap:14px;will-change:transform}
 .rk__pos{font-family:var(--f-mono);font-size:var(--fs-mono-s);color:var(--c-mute);flex:0 0 26px}
 .rk__nm{font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:.06em;flex:0 0 120px;color:var(--c-ink)}
