@@ -25,6 +25,9 @@
   color:var(--c-mute);flex:0 0 86px;padding-top:3px}
 .fact__v{font-size:var(--fs-fact);line-height:1.4;color:var(--c-ink)}
 .fact__v b{color:var(--c-amber);font-weight:var(--fw-bold)}
+.fact__v a{color:var(--c-amber);text-decoration:none;border-bottom:1px solid var(--c-line);
+  transition:border-color var(--dur-fast)}
+.fact__v a:hover{border-color:var(--c-amber)}
 
 /* ---------- CONTACT LINKS ---------- */
 .contact{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:38px;
@@ -33,6 +36,13 @@
   padding-bottom:3px;transition:border-color var(--dur-fast), color var(--dur-fast)}
 .contact a:hover{border-color:var(--c-amber);color:var(--c-amber)}
 .contact .soon{color:var(--c-mute);font-size:10px}
+
+/* ---------- TECH CHIPS (skenovatelný stack) ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.06em;
+  color:var(--c-ink);border:1px solid var(--c-line);padding:6px 11px;white-space:nowrap;
+  transition:border-color var(--dur-fast), color var(--dur-fast)}
+.chip:hover{border-color:var(--c-amber);color:var(--c-amber)}
 
 /* status tečka */
 .status{display:flex;align-items:center;gap:9px;color:var(--c-ink)}
