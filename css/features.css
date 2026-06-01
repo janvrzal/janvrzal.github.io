@@ -41,6 +41,34 @@
 .section--arthea .section__lead{color:#241b07}
 .section--arthea .cta{border-color:var(--c-amber-ink);color:var(--c-amber-ink)}
 .section--arthea .cta:hover{background:var(--c-amber-ink);color:var(--c-amber)}
+/* facts na amber ploše — tmavší klíče i hodnoty */
+.section--arthea .fact{border-color:rgba(16,12,4,.2)}
+.section--arthea .fact:last-child{border-color:rgba(16,12,4,.2)}
+.section--arthea .fact__k{color:#5a4710}
+.section--arthea .fact__v{color:#241b07}
+.section--arthea .fact__v b{color:var(--c-amber-ink)}
+
+/* ---------- Arthea: mapa (Affinity export na tmavé „obrazovce") ---------- */
+.amap{margin:0}
+.amap__screen{position:relative;background:var(--c-bg);border:1px solid rgba(16,12,4,.4);
+  aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden}
+.amap__screen img{width:100%;height:100%;object-fit:cover}
+.amap__ph{font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:.14em;
+  color:var(--c-mute);text-align:center;padding:0 24px}
+.amap__screen img + .amap__ph{display:none} /* skryj placeholder, když je mapa */
+.amap__cap{margin-top:14px;font-family:var(--f-mono);font-size:var(--fs-mono-xs);
+  letter-spacing:.14em;color:#5a4710}
+.amap__cap b{color:var(--c-amber-ink);font-weight:500}
+
+/* ---------- Arthea: emergentní historie (log) ---------- */
+.alog{margin-top:46px;border-top:1px solid rgba(16,12,4,.2);padding-top:24px}
+.alog__h{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.16em;
+  color:#5a4710;margin-bottom:18px}
+.alog__list{list-style:none;counter-reset:tick;display:flex;flex-direction:column;gap:14px;max-width:64ch}
+.alog__list li{position:relative;padding-left:42px;counter-increment:tick;
+  font-family:var(--f-body);font-size:var(--fs-fact);line-height:1.45;color:#241b07}
+.alog__list li::before{content:"t" counter(tick);position:absolute;left:0;top:1px;
+  font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.06em;color:var(--c-amber-ink)}
 
 .caro{border:1px solid rgba(16,12,4,.25);overflow:hidden;position:relative}
 .caro__vp{overflow:hidden}
