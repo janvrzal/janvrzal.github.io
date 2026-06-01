@@ -8,6 +8,7 @@ import { initMcda } from './features/mcda.js';
 import { initPipeline } from './features/pipeline.js';
 import { initCarousel } from './features/carousel.js';
 import { initDice } from './features/dice.js';
+import { initFitTitle } from './features/fit-title.js';
 
 function boot() {
   initToggle();
@@ -19,6 +20,7 @@ function boot() {
   initPipeline();
   initCarousel();
   initDice();
+  initFitTitle();
   setLang('cz'); // počáteční jazyk + první notifikace widgetům
 }
 
