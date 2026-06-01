@@ -4,6 +4,7 @@
    ============================================================ */
 import { CONTENT } from '../content.js';
 import { getLang, onLang } from '../i18n.js';
+import { reduceMotion } from '../motion.js';
 
 export function initCarousel() {
   const root = document.querySelector('[data-carousel]');
@@ -38,7 +39,11 @@ export function initCarousel() {
   }
 
   function go(i) { idx = (i + realms.length) % realms.length; update(); reset(); }
-  function reset() { clearInterval(timer); timer = setInterval(() => go(idx + 1), 4200); }
+  function reset() {
+    clearInterval(timer);
+    if (reduceMotion()) return; // bez auto-advance, ovládá se šipkami/tečkami
+    timer = setInterval(() => go(idx + 1), 4200);
+  }
 
   root.querySelector('[data-caro-prev]').addEventListener('click', () => go(idx - 1));
   root.querySelector('[data-caro-next]').addEventListener('click', () => go(idx + 1));

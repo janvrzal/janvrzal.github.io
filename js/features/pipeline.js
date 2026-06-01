@@ -5,6 +5,7 @@
    ============================================================ */
 import { CONTENT } from '../content.js';
 import { getLang } from '../i18n.js';
+import { reduceMotion } from '../motion.js';
 
 export function initPipeline() {
   const cv = document.querySelector('[data-pipeline]');
@@ -56,6 +57,33 @@ export function initPipeline() {
     packets = packets.filter(p => p.x < 1.03 && p.a > 0 && p.fy < H);
 
     requestAnimationFrame(draw);
+  }
+
+  // statický snímek (prefers-reduced-motion): osa, stages a pár klidných paketů
+  function drawStatic() {
+    ctx.clearRect(0, 0, W, H);
+    const y = H * 0.46;
+    ctx.strokeStyle = 'rgba(239,233,221,.14)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(ST[0].x * W, y); ctx.lineTo(ST[ST.length - 1].x * W, y); ctx.stroke();
+    ctx.font = '10px "IBM Plex Mono", monospace';
+    ctx.textAlign = 'center';
+    ST.forEach((s, i) => {
+      const sx = s.x * W, gate = i === 2;
+      ctx.strokeStyle = gate ? 'rgba(246,167,0,.55)' : 'rgba(239,233,221,.3)';
+      ctx.beginPath(); ctx.moveTo(sx, y - (gate ? 18 : 13)); ctx.lineTo(sx, y + (gate ? 18 : 13)); ctx.stroke();
+      ctx.fillStyle = gate ? '#f6a700' : '#857e70';
+      ctx.fillText(getLang() === 'cz' ? s.cz : s.en, sx, y - 26);
+      ctx.fillStyle = '#f6a700';
+      ctx.fillRect(sx - 3, y - 3, 6, 6);
+    });
+  }
+
+  if (reduceMotion()) {
+    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { size(); drawStatic(); } }), { threshold: .15 }).observe(cv);
+    window.addEventListener('resize', () => { size(); drawStatic(); });
+    size(); drawStatic();
+    return;
   }
 
   new IntersectionObserver(es => es.forEach(e => { active = e.isIntersecting; if (active) size(); }), { threshold: .15 }).observe(cv);

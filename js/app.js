@@ -9,9 +9,11 @@ import { initPipeline } from './features/pipeline.js';
 import { initCarousel } from './features/carousel.js';
 import { initDice } from './features/dice.js';
 import { initFitTitle } from './features/fit-title.js';
+import { initNav } from './features/nav.js';
 
 function boot() {
   initToggle();
+  initNav();
   initHero();
   initClock();
   initMarquee();

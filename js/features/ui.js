@@ -4,6 +4,7 @@
    ============================================================ */
 import { CONTENT } from '../content.js';
 import { getLang, onLang } from '../i18n.js';
+import { reduceMotion } from '../motion.js';
 
 /* --- hero: rotující slovo --- */
 export function initHero() {
@@ -13,6 +14,7 @@ export function initHero() {
   const set = () => { el.textContent = CONTENT.heroRotate[getLang()][i % CONTENT.heroRotate[getLang()].length]; };
   set();
   onLang(set);
+  if (reduceMotion()) return; // bez rotace – jen první slovo
   setInterval(() => {
     el.classList.add('is-out');
     setTimeout(() => { i++; set(); el.classList.remove('is-out'); }, 230);
