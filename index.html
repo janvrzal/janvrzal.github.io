@@ -3,324 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jan Vrzal — designer, developer, AI engineer</title>
-  <meta name="description" content="Jan Vrzal — student aplikované informatiky, builder datových a AI nástrojů, worldbuilder a dungeon master z Prahy.">
+  <title>Jan Vrzal — produkt, architektura, vývoj řízený AI</title>
+  <meta name="description" content="Produktový vlastník a softwarový architekt z Prahy. Navrhuje systémy a vede jejich vývoj s týmem AI agentů.">
   <link rel="canonical" href="https://janvrzal.github.io/">
-  <meta name="theme-color" content="#0c0b08">
-
-  <!-- favicon -->
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jan Vrzal — designer, developer, AI engineer">
-  <meta property="og:description" content="Student aplikované informatiky, builder datových a AI nástrojů, worldbuilder a dungeon master z Prahy.">
+  <meta property="og:title" content="Jan Vrzal — produkt, architektura, vývoj řízený AI">
+  <meta property="og:description" content="Produktový vlastník a softwarový architekt z Prahy. Navrhuje systémy a vede jejich vývoj s týmem AI agentů.">
   <meta property="og:url" content="https://janvrzal.github.io/">
   <meta property="og:locale" content="cs_CZ">
-  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:image" content="https://janvrzal.github.io/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Jan Vrzal — designer, developer, AI engineer">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://janvrzal.github.io/og-image.png">
-
-  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- styles (pořadí: tokens → base → layout → components → features) -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/features.css">
-
-  <!-- strukturovaná data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Jan Vrzal",
-    "url": "https://janvrzal.github.io/",
-    "image": "https://janvrzal.github.io/og-image.png",
-    "jobTitle": "Designer, developer & AI engineer",
-    "description": "Student aplikované informatiky, builder datových a AI nástrojů, worldbuilder a dungeon master z Prahy.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Praha",
-      "addressCountry": "CZ"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Vysoká škola ekonomická v Praze (FIS VŠE)"
-    },
-    "knowsAbout": ["Python", "SQL", "Data pipelines", "Machine Learning", "LLM", "MCDA", "Worldbuilding"],
-    "sameAs": [
-      "https://github.com/janvrzal",
-      "https://linkedin.com/in/jan-vrzal",
-      "https://instagram.com/jan_vrzal"
-    ]
-  }
-  </script>
-
   <script type="module" src="js/app.js"></script>
 </head>
 <body>
-
-  <a class="skip" href="#about" data-cz="Přeskočit na obsah" data-en="Skip to content"></a>
-  <div class="scroll-bar" data-scroll-bar aria-hidden="true"></div>
-
-  <!-- ============ NAV ============ -->
+  <a class="skip" href="#main" data-cz="Přeskočit na obsah" data-en="Skip to content">Přeskočit na obsah</a>
   <nav class="nav" aria-label="Hlavní navigace">
-    <a href="#top" class="nav__logo">JV</a>
+    <a href="index.html" class="nav__logo">Jan Vrzal</a>
     <div class="nav__links" id="nav-menu">
-      <a href="#about"    data-cz="O mně"    data-en="About"></a>
-      <a href="#academia" data-cz="Výzkum"   data-en="Research"></a>
-      <a href="#career"   data-cz="Práce"    data-en="Work"></a>
-      <a href="#tech">Stack</a>
-      <a href="#arthea">Arthea</a>
-      <a href="#table"    data-cz="Stůl"     data-en="Table"></a>
-      <a href="#contact"  data-cz="Kontakt"  data-en="Contact"></a>
+      <a href="#work" data-cz="Projekty" data-en="Projects">Projekty</a>
+      <a href="esd/index.html" data-cz="ESD" data-en="ESD">ESD</a>
+      <a href="cee/index.html" data-cz="CEE" data-en="CEE">CEE</a>
+      <a href="arthea/index.html" data-cz="Arthea" data-en="Arthea">Arthea</a>
+      <a href="#contact" data-cz="Kontakt" data-en="Contact">Kontakt</a>
     </div>
-    <div class="lang" aria-label="Jazyk">
-      <button data-lang-btn="cz" class="is-active">CZ</button><span>/</span><button data-lang-btn="en">EN</button>
+    <div class="lang" aria-label="Jazyk / Language">
+      <button data-lang-btn="cz" class="is-active">CZ</button><button data-lang-btn="en">EN</button>
     </div>
     <button class="nav__burger" data-nav-burger aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
+      <span></span><span></span>
     </button>
   </nav>
+  <main id="main">
 
-  <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <header class="hero">
-      <div class="hero__inner">
-        <p class="hero__eyebrow" data-cz="JAN VRZAL — STUDENT · BUILDER · PRAHA" data-en="JAN VRZAL — STUDENT · BUILDER · PRAGUE"></p>
-      </div>
-      <h1 class="hero__name">VRZAL</h1>
-      <div class="hero__inner">
-        <p class="hero__build">
-          <span class="verb" data-cz="Stavím" data-en="I build"></span>
-          <span class="swap" data-hero-swap></span>
-        </p>
-        <p class="hero__cue"><span class="ln"></span><span data-cz="scrolluj dolů" data-en="scroll down"></span></p>
-      </div>
+    <header class="intro wrap">
+      <h1 class="intro__h col-a" data-cz="Produkt a architektura softwaru vyvíjeného s AI agenty" data-en="Product and architecture for software built with AI agents">Produkt a architektura softwaru vyvíjeného s AI agenty</h1>
+      <dl class="intro__meta col-b">
+        <div><dt class="lbl">Panelreko, Praha</dt><dd data-cz="vedu vývoj interního systému ESD" data-en="I lead development of the internal ESD system">vedu vývoj interního systému ESD</dd></div>
+        <div><dt class="lbl">FIS VŠE</dt><dd data-cz="aplikovaná informatika, Bc. 2027" data-en="Applied Informatics, BSc 2027">aplikovaná informatika, Bc. 2027</dd></div>
+        <div><dt class="lbl" data-cz="Kontakt" data-en="Contact">Kontakt</dt><dd><a href="mailto:honza@vrzal.cz">honza@vrzal.cz</a></dd></div>
+      </dl>
+      <p class="intro__p col-a" data-cz="Studuji aplikovanou informatiku na VŠE. V Panelreku jsem navrhl interní systém ESD a vedu jeho vývoj; firma v něm od srpna 2026 řídí zakázky. Implementaci píšou AI agenti podle mých zadání, pravidel a testů. Já zodpovídám za návrh, rozhodnutí a za to, co se nasadí do provozu." data-en="I study Applied Informatics at VŠE in Prague. At Panelreko I designed the internal ESD system and lead its development; the company has run its projects on it since August 2026. AI agents write the implementation from my briefs, rules and tests. I'm responsible for the design, the decisions and what gets deployed.">Studuji aplikovanou informatiku na VŠE. V Panelreku jsem navrhl interní systém ESD a vedu jeho vývoj; firma v něm od srpna 2026 řídí zakázky. Implementaci píšou AI agenti podle mých zadání, pravidel a testů. Já zodpovídám za návrh, rozhodnutí a za to, co se nasadí do provozu.</p>
     </header>
 
-    <!-- ============ 01 ABOUT ============ -->
-    <section class="section" id="about" aria-labelledby="about-t">
-      <div class="section__title reveal"><span id="about-t" data-cz="AHOJ" data-en="HELLO"></span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">01 — <span data-cz="KDO JSEM" data-en="WHO I AM"></span></p>
-        <p class="section__lead reveal" style="max-width:32ch"
-          data-cz="Druhák Aplikované informatiky na FIS VŠE. Píšu kód, navrhuju rozhraní a stavím datové a AI nástroje. Když zrovna nestavím software, stavím fiktivní světy nebo vedu kampaně u stolu. Řemeslo beru vážně — sebe ne až tak."
-          data-en="Second-year Applied Informatics student at FIS VŠE in Prague. I write code, design interfaces and build data & AI tools. When I'm not building software, I'm building fictional worlds or running tabletop campaigns. Serious about the craft — less so about myself."></p>
-        <p class="reveal" style="margin-top:30px;font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:.14em;color:var(--c-mute)">
-          <span data-cz="MÍSTNÍ ČAS V PRAZE" data-en="LOCAL TIME IN PRAGUE"></span> — <span data-clock style="color:var(--c-amber)">--:--:--</span>
-        </p>
-        <div class="contact reveal" style="margin-top:26px">
-          <a href="https://github.com/janvrzal" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://instagram.com/jan_vrzal" target="_blank" rel="noopener">Instagram</a>
-        </div>
+    <section class="block wrap" id="work">
+      <h2 class="block__h"><span class="lbl" data-cz="Projekty" data-en="Projects">Projekty</span></h2>
+      <ul class="tiles">
+        <li><a href="esd/index.html">
+          <span class="tile__n mono">01</span>
+          <span class="tile__k lbl"><i class="sq"></i><span data-cz="Produkce, 2026–" data-en="Production, 2026–">Produkce, 2026–</span></span>
+          <span class="tile__t">Panelreko ESD</span>
+          <span class="tile__d" data-cz="Provozní systém stavební firmy: poptávky, zakázky, stavební deník, aplikace pro řemeslníky a zákaznický portál." data-en="Operations system for a construction company: inquiries, projects, a site diary, a craftsman app and a customer portal.">Provozní systém stavební firmy: poptávky, zakázky, stavební deník, aplikace pro řemeslníky a zákaznický portál.</span>
+          <span class="tile__go" data-cz="Případová studie" data-en="Case study">Případová studie</span>
+        </a></li>
+        <li><a href="cee/index.html">
+          <span class="tile__n mono">02</span>
+          <span class="tile__k lbl"><i class="sq"></i><span data-cz="Výzkum, 2026–" data-en="Research, 2026–">Výzkum, 2026–</span></span>
+          <span class="tile__t">Conlang Evolution Engine</span>
+          <span class="tile__d" data-cz="Simulátor vývoje jazyků. Z protojazyka a historie fiktivního světa spočítá jazykovou rodinu za 1 000 až 5 000 let." data-en="A language evolution simulator. From a proto-language and a fictional world's history, it computes a language family over 1,000 to 5,000 years.">Simulátor vývoje jazyků. Z protojazyka a historie fiktivního světa spočítá jazykovou rodinu za 1 000 až 5 000 let.</span>
+          <span class="tile__go" data-cz="Případová studie" data-en="Case study">Případová studie</span>
+        </a></li>
+        <li><a href="arthea/index.html">
+          <span class="tile__n mono">03</span>
+          <span class="tile__k lbl"><i class="sq"></i><span data-cz="Volný čas" data-en="Personal">Volný čas</span></span>
+          <span class="tile__t">Arthea</span>
+          <span class="tile__d" data-cz="Fiktivní svět postavený na simulované tektonice. Státy a dějiny odvozuji z geografie." data-en="A fictional world built on simulated plate tectonics. I derive its states and history from the geography.">Fiktivní svět postavený na simulované tektonice. Státy a dějiny odvozuji z geografie.</span>
+          <span class="tile__go" data-cz="Mapa a metoda" data-en="Map and method">Mapa a metoda</span>
+        </a></li>
+      </ul>
+    </section>
+
+    <section class="block wrap" id="process">
+      <h2 class="block__h"><span class="lbl" data-cz="Postup" data-en="Process">Postup</span></h2>
+      <div class="block__body">
+        <p class="lead" data-cz="Na obou projektech pracuji stejně. Rozhoduji o tom, co se staví a proč, a nastavuji pravidla, podle kterých AI agenti kód píšou a ověřují." data-en="I work the same way on both projects. I decide what gets built and why, and set the rules by which AI agents write and verify the code.">Na obou projektech pracuji stejně. Rozhoduji o tom, co se staví a proč, a nastavuji pravidla, podle kterých AI agenti kód píšou a ověřují.</p>
+        <ol class="steps">
+          <li><b data-cz="Zadání a doménový model" data-en="Brief and domain model">Zadání a doménový model</b><span data-cz="Rozhovory s uživateli, písemný plán, model domény." data-en="Talking to users, a written plan, the domain model.">Rozhovory s uživateli, písemný plán, model domény.</span></li>
+          <li><b data-cz="Návrh rozhraní" data-en="Interface design">Návrh rozhraní</b><span data-cz="Několik variant ve skutečných šířkách obrazovky. Implementuje se vybraná." data-en="Several variants at real screen widths. The chosen one gets built.">Několik variant ve skutečných šířkách obrazovky. Implementuje se vybraná.</span></li>
+          <li><b data-cz="Pravidla a testy pro agenty" data-en="Rules and tests for agents">Pravidla a testy pro agenty</b><span data-cz="Pevná pravidla v repozitáři, každé hlídá automatický test." data-en="Hard rules in the repository, each checked by an automated test.">Pevná pravidla v repozitáři, každé hlídá automatický test.</span></li>
+          <li><b data-cz="Paralelní práce ve větvích" data-en="Parallel work in branches">Paralelní práce ve větvích</b><span data-cz="Podagenti pracují v izolovaných větvích, hlavní agent integruje." data-en="Subagents work in isolated branches; a lead agent integrates.">Podagenti pracují v izolovaných větvích, hlavní agent integruje.</span></li>
+          <li><b data-cz="Kontrola a vydání" data-en="Review and release">Kontrola a vydání</b><span data-cz="Slučuje se přes kontrolní bránu. Do provozu nasazuji sám." data-en="Merges go through a verification gate. I deploy to production myself.">Slučuje se přes kontrolní bránu. Do provozu nasazuji sám.</span></li>
+        </ol>
+        <a class="arrow-link" href="esd/index.html#process" data-cz="Podrobně na příkladu ESD" data-en="In detail, using ESD">Podrobně na příkladu ESD</a>
       </div>
     </section>
 
-    <!-- ============ 02 ACADEMIA ============ -->
-    <section class="section" id="academia" aria-labelledby="academia-t">
-      <div class="section__title reveal"><span id="academia-t" data-cz="VÝZKUM" data-en="RESEARCH"></span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">02 — <span data-cz="AKADEMIKA & VÝZKUM" data-en="ACADEMIA & RESEARCH"></span></p>
-        <p class="section__lead reveal"
-          data-cz="Bakalářka o LLM datových pipeline a benchmarkingu MCDA solverů — plus projekty z AI předmětů, kde aplikuju modely na reálná data."
-          data-en="A bachelor's thesis on LLM-driven data pipelines and benchmarking MCDA solvers — plus projects from AI courses, applying models to real data."></p>
-
-        <div class="section__feature reveal">
-          <div class="mcda">
-            <div>
-              <p class="mcda__h" data-cz="ZKUS SI TO — VÁHY KRITÉRIÍ" data-en="TRY IT — CRITERIA WEIGHTS"></p>
-              <div class="crit">
-                <label><span data-cz="Přesnost" data-en="Accuracy"></span><span class="pct" data-mcda-pct>33%</span></label>
-                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Accuracy weight">
-              </div>
-              <div class="crit">
-                <label><span data-cz="Rychlost" data-en="Speed"></span><span class="pct" data-mcda-pct>33%</span></label>
-                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Speed weight">
-              </div>
-              <div class="crit">
-                <label><span data-cz="Robustnost" data-en="Robustness"></span><span class="pct" data-mcda-pct>33%</span></label>
-                <input type="range" min="0" max="100" value="50" data-mcda-weight aria-label="Robustness weight">
-              </div>
-            </div>
-            <div>
-              <p class="mcda__h" data-cz="ŽEBŘÍČEK SOLVERŮ (živě)" data-en="SOLVER RANKING (live)"></p>
-              <div class="ranks" data-mcda-ranks></div>
-              <p class="mcda__note" data-cz="Ilustrativní data — nahradí je reálné benchmarky z práce." data-en="Illustrative data — to be replaced by real benchmarks from the thesis."></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="section__tail reveal">
-          <div class="facts">
-            <div class="fact"><span class="fact__k">THESIS</span><span class="fact__v"><b>LLM-driven Data Pipeline &amp; Benchmark Tool for MCDA</b> <span data-cz="— benchmark UTA-NM vs. Ghaderi · vedoucí prof. Tomáš Kliegr · FIS VŠE · 2027" data-en="— benchmarking UTA-NM vs. Ghaderi · supervisor prof. Tomáš Kliegr · FIS VŠE · 2027"></span></span></div>
-            <div class="fact"><span class="fact__k">CNN</span><span class="fact__v" data-cz="Sentiment CNN (Keras/TF) — 15 řízených experimentů na IMDb, nejlepší 83 % test accuracy (majorita 50 %)" data-en="Sentiment CNN (Keras/TF) — 15 controlled experiments on IMDb, best 83% test accuracy (50% majority baseline)"></span></div>
-            <div class="fact"><span class="fact__k">DROPOUT</span><span class="fact__v" data-cz="Predikce dropoutu (tým) — 4 modely + SMOTE, práh laděný nákladovou maticí (5-fold CV): recall 0,98, +14,3 mil. Kč v simulaci" data-en="Dropout prediction (team) — 4 models + SMOTE, cost-matrix-tuned threshold (5-fold CV): recall 0.98, +14.3M CZK in simulation"></span></div>
-            <div class="fact"><span class="fact__k">CHATBOT</span><span class="fact__v" data-cz="Český NLP chatbot (Rasa, tým) — 8 intentů, 5 entit, 26 e2e testů; F1 doporučení 0,0 → 1,0 přechodem na Forms" data-en="Czech NLP chatbot (Rasa, team) — 8 intents, 5 entities, 26 e2e tests; recommendation F1 from 0.0 to 1.0 via Forms"></span></div>
-            <div class="fact"><span class="fact__k">OPTIMIZER</span><span class="fact__v"><span data-cz="LLM Cutting Stock Optimizer — experimentální (Streamlit + Pydantic) · " data-en="LLM Cutting Stock Optimizer — experimental (Streamlit + Pydantic) · "></span><a href="https://github.com/janvrzal/llm-cutting-optimizer" target="_blank" rel="noopener">GitHub →</a></span></div>
-            <div class="fact"><span class="fact__k">NEXT</span><span class="fact__v" data-cz="V rámci studia směřuji na magistr UIDS (specializace HAI) — od 2027" data-en="UIDS master's degree (HAI specialization) — from 2027"></span></div>
-          </div>
-          <a class="cta" href="#"><span data-cz="Výzkum" data-en="Research"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
-        </div>
+    <section class="block wrap" id="cv">
+      <h2 class="block__h"><span class="lbl" data-cz="Zkušenosti" data-en="Experience">Zkušenosti</span></h2>
+      <div class="block__body">
+        <table class="rows">
+          <tr><td class="mono">2026–</td><th data-cz="Panelreko" data-en="Panelreko">Panelreko</th><td data-cz="Produkt a architektura systému ESD" data-en="Product and architecture of ESD">Produkt a architektura systému ESD</td></tr>
+          <tr><td class="mono">2025–</td><th>DDM Praha 7</th><td data-cz="Lektor herního vývoje pro děti" data-en="Game development instructor for kids">Lektor herního vývoje pro děti</td></tr>
+          <tr><td class="mono">2026</td><th>4FIS Game Jam</th><td data-cz="Organizátor" data-en="Organizer">Organizátor</td></tr>
+          <tr><td class="mono">–2027</td><th>FIS VŠE</th><td data-cz="Aplikovaná informatika (Bc.), poté magisterské UIDS, specializace HAI" data-en="Applied Informatics (BSc), then the UIDS master's, HAI specialization">Aplikovaná informatika (Bc.), poté magisterské UIDS, specializace HAI</td></tr>
+        </table>
       </div>
     </section>
 
-    <!-- ============ 03 CAREER ============ -->
-    <section class="section" id="career" aria-labelledby="career-t">
-      <div class="section__title reveal"><span id="career-t" data-cz="PRÁCE" data-en="WORK"></span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">03 — <span data-cz="PROFESE & KARIÉRA" data-en="PROFESSION & CAREER"></span></p>
-        <p class="section__lead reveal"
-          data-cz="Učím děti tvořit hry, organizuju game jam a přivydělávám si za barem. A hledám stáž, kde budu stavět datové a AI nástroje v praxi."
-          data-en="I teach kids to make games, organize a game jam and earn my keep behind a coffee bar. And I'm after an internship building data & AI tools in production."></p>
-
-        <div class="section__tail reveal">
-          <div class="facts">
-            <div class="fact"><span class="fact__k">INSTRUCTOR</span><span class="fact__v" data-cz="Lektor herního vývoje @ DDM Praha 7 (2025–dosud)" data-en="Game Development Instructor @ DDM Praha 7 (2025–now)"></span></div>
-            <div class="fact"><span class="fact__k">EVENTS</span><span class="fact__v" data-cz="Organizátor 4FIS Game Jam (2026)" data-en="4FIS Game Jam organizer (2026)"></span></div>
-            <div class="fact"><span class="fact__k">SERVICE</span><span class="fact__v" data-cz="Barista @ Starbucks" data-en="Barista @ Starbucks"></span></div>
-            <!-- až bude aktuální: -->
-            <!-- <div class="fact"><span class="fact__k">DATA</span><span class="fact__v" data-cz="Panelreko — ..." data-en="Panelreko — ..."></span></div> -->
-            <div class="fact"><span class="fact__k">STATUS</span><span class="fact__v"><b>Open to work</b> — data / AI / automation</span></div>
-          </div>
-          <a class="cta" href="#"><span data-cz="Portfolio & CV" data-en="Portfolio & CV"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
-        </div>
+    <section class="block wrap" id="other">
+      <h2 class="block__h"><span class="lbl" data-cz="Další projekty" data-en="Other projects">Další projekty</span></h2>
+      <div class="block__body">
+        <table class="rows">
+          <tr><th data-cz="Bakalářská práce" data-en="Bachelor's thesis">Bakalářská práce</th><td data-cz="LLM datová pipeline a benchmark solverů vícekriteriálního rozhodování (UTA-NM, Ghaderi). Vedoucí prof. Tomáš Kliegr." data-en="An LLM data pipeline and a benchmark of multi-criteria decision solvers (UTA-NM, Ghaderi). Supervised by prof. Tomáš Kliegr.">LLM datová pipeline a benchmark solverů vícekriteriálního rozhodování (UTA-NM, Ghaderi). Vedoucí prof. Tomáš Kliegr.</td></tr>
+          <tr><th>LLM Cutting Stock Optimizer</th><td><span data-cz="Jazykový model převádí zadání na optimalizační úlohu řezání materiálu. " data-en="A language model turns a brief into a cutting-stock optimization problem. ">Jazykový model převádí zadání na optimalizační úlohu řezání materiálu. </span><a href="https://github.com/janvrzal/llm-cutting-optimizer" target="_blank" rel="noopener">GitHub</a></td></tr>
+          <tr><th data-cz="Predikce odchodu studentů" data-en="Student dropout prediction">Predikce odchodu studentů</th><td><span data-cz="Týmový projekt. Práh modelu nastavený podle nákladů chyb; recall 0,98. " data-en="Team project. Model threshold set by the cost of errors; recall 0.98. ">Týmový projekt. Práh modelu nastavený podle nákladů chyb; recall 0,98. </span><a href="https://github.com/Student-dropout-ML/student-dropout-ml" target="_blank" rel="noopener">GitHub</a></td></tr>
+          <tr><th data-cz="Český chatbot (Rasa)" data-en="Czech chatbot (Rasa)">Český chatbot (Rasa)</th><td data-cz="Týmový projekt. Doporučování začalo fungovat až po nahrazení volného dialogu formulářem." data-en="Team project. Recommendations only worked once free dialogue was replaced with a form.">Týmový projekt. Doporučování začalo fungovat až po nahrazení volného dialogu formulářem.</td></tr>
+          <tr><th data-cz="Nástroje" data-en="Tools">Nástroje</th><td>FastAPI, PostgreSQL, SvelteKit, Rust, Tauri, Docker, Claude Code, Codex</td></tr>
+        </table>
       </div>
     </section>
 
-    <!-- ============ 04 STACK / TECHNOLOGIE ============ -->
-    <section class="section" id="tech" aria-labelledby="tech-t">
-      <div class="section__title reveal"><span id="tech-t">STACK</span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">04 — <span data-cz="TECHNOLOGIE & NÁSTROJE" data-en="TECHNOLOGIES & TOOLS"></span></p>
-        <p class="section__lead reveal"
-          data-cz="Čím to stavím. Pipeline, co z chaosu dělají čistá, validovaná data — a modely, co z nich něco vyčtou."
-          data-en="What I build with. Pipelines that turn chaos into clean, validated data — and models that read something out of it."></p>
-
-        <div class="section__feature reveal">
-          <div class="pipe">
-            <canvas data-pipeline></canvas>
-            <p class="pipe__cap"><b>DATA PIPELINE</b> · <span data-cz="ingest → validace (Pydantic) → transform" data-en="ingest → validation (Pydantic) → transform"></span></p>
-          </div>
-        </div>
-
-        <div class="section__tail reveal">
-          <div class="facts">
-            <div class="fact"><span class="fact__k">LANGUAGES</span><span class="fact__v"><span class="chips"><span class="chip">Python</span><span class="chip">SQL</span></span></span></div>
-            <div class="fact"><span class="fact__k">DATA</span><span class="fact__v"><span class="chips"><span class="chip">Pandas</span><span class="chip">Pydantic</span><span class="chip">Power BI</span><span class="chip">Streamlit</span></span></span></div>
-            <div class="fact"><span class="fact__k">ML / AI</span><span class="fact__v"><span class="chips"><span class="chip">scikit-learn</span><span class="chip">Keras</span><span class="chip">TensorFlow</span><span class="chip">Rasa</span><span class="chip">LLM APIs</span><span class="chip">MCDA</span></span></span></div>
-            <div class="fact"><span class="fact__k">TOOLS</span><span class="fact__v"><span class="chips"><span class="chip">Docker</span><span class="chip">Git</span></span></span></div>
-          </div>
-          <a class="cta" href="https://github.com/janvrzal" target="_blank" rel="noopener">GitHub →</a>
-        </div>
+    <footer class="foot wrap" id="contact">
+      <h2 class="block__h"><span class="lbl" data-cz="Kontakt" data-en="Contact">Kontakt</span></h2>
+      <div class="foot__body">
+        <a class="foot__mail" href="mailto:honza@vrzal.cz">honza@vrzal.cz</a>
+        <ul class="foot__links">
+          <li><a href="https://github.com/janvrzal" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/jan_vrzal" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- ============ 05 ARTHEA ============ -->
-    <section class="section section--arthea" id="arthea" aria-labelledby="arthea-t">
-      <div class="section__title reveal"><span id="arthea-t">ARTHEA</span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">05 — WORLDBUILDING</p>
-        <p class="section__lead reveal"
-          data-cz="Svět, který nevyprávím — simuluji ho. Tektoniku počítám v GPlates, terén kreslím v Affinity nad výškovými daty a dějiny nechávám vyrůst z geografie: státy vznikají tam, kde to dovolí hory, řeky a úrodná půda. Tvrdý worldbuilding — fikce postavená na vědě."
-          data-en="A world I don't narrate — I simulate it. Tectonics in GPlates, terrain hand-drawn in Affinity over elevation data, and history left to grow out of geography: states form where the mountains, rivers and fertile land allow. Hard worldbuilding — fiction built on science."></p>
-
-        <div class="section__feature reveal">
-          <figure class="amap">
-            <div class="amap__screen">
-              <img src="assets/arthea-map.png" alt="Mapa světa Arthea — výškový model" loading="lazy" onerror="this.remove()">
-              <span class="amap__ph" data-cz="MAPA — export z Affinity sem · GPlates → výška → terén" data-en="MAP — drop Affinity export here · GPlates → elevation → terrain"></span>
-            </div>
-            <figcaption class="amap__cap">
-              <b>ARTHEA</b> · <span data-cz="tektonika simulovaná v GPlates, terén kreslený v Affinity" data-en="tectonics simulated in GPlates, terrain drawn in Affinity"></span>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="alog reveal" aria-label="Emergentní historie">
-          <p class="alog__h" data-cz="EMERGENTNÍ HISTORIE — VYPLÝVÁ Z TERÉNU" data-en="EMERGENT HISTORY — IT GROWS FROM THE TERRAIN"></p>
-          <ol class="alog__list">
-            <li data-cz="Obchodní tepny podél pobřeží a jezer rozhodují, kde roste moc — a kudy přijde její pád." data-en="Trade arteries along coasts and lakes decide where power grows — and where it falls."></li>
-            <li data-cz="Nájezdníci od jezer a ze severu tlačí roztříštěné státy k centralizaci." data-en="Raiders from the lakes and the north push fractured states toward centralization."></li>
-            <li data-cz="Sucho přetrhne severní obchodní cestu; region se rozpadne a přeživší se obrátí k moři." data-en="A drought severs the northern trade route; the region fragments and the survivors turn to the sea."></li>
-            <li data-cz="Z kupecké vrstvy na ostrově se zformuje námořní impérium — moc drží obchod, ne dynastie." data-en="A merchant class on an island hardens into a naval empire — power held by trade, not dynasty."></li>
-            <li data-cz="Nic z toho není psané předem. Vyplyne to z mapy." data-en="None of this is written in advance. It emerges from the map."></li>
-          </ol>
-        </div>
-
-        <div class="section__tail reveal">
-          <div class="facts">
-            <div class="fact"><span class="fact__k">TECTONICS</span><span class="fact__v" data-cz="GPlates — simulovaná historie litosférických desek" data-en="GPlates — simulated history of lithospheric plates"></span></div>
-            <div class="fact"><span class="fact__k">TERRAIN</span><span class="fact__v" data-cz="ruční kresba v Affinity nad výškovými daty" data-en="hand-drawn in Affinity over elevation data"></span></div>
-            <div class="fact"><span class="fact__k">METHOD</span><span class="fact__v">hard worldbuilding · worldbuildingpasta · Madeline James</span></div>
-            <div class="fact"><span class="fact__k">HISTORY</span><span class="fact__v" data-cz="emergentní — státy vyrůstají z geografie, ne z trůnu" data-en="emergent — states grow from geography, not from a throne"></span></div>
-          </div>
-          <a class="cta" href="#"><span data-cz="Vstoupit do světa" data-en="Enter the world"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 06 TABLETOP ============ -->
-    <section class="section" id="table" aria-labelledby="table-t">
-      <div class="section__title reveal"><span id="table-t" data-cz="STŮL" data-en="TABLE"></span></div>
-      <div class="wrap">
-        <p class="section__idx reveal">06 — <span data-cz="KE STOLU" data-en="AT THE TABLE"></span></p>
-        <p class="section__lead reveal"
-          data-cz="Dungeon Master ve volném čase. Vedu kampaně, stavím dobrodružství, vyprávím příběhy — a občas vyhraju Twilight Imperium."
-          data-en="A Dungeon Master in my spare time. I run campaigns, build adventures, tell stories — and occasionally win at Twilight Imperium."></p>
-
-        <div class="section__feature reveal">
-          <div class="dice">
-            <div class="die" data-die title="roll">20</div>
-            <p class="dice__res">
-              <span data-cz="HOĎ SI NA INICIATIVU — KLIKNI NA KOSTKU" data-en="ROLL FOR INITIATIVE — CLICK THE DIE"></span>
-              <span class="dice__out" data-die-out></span>
-            </p>
-          </div>
-        </div>
-
-        <div class="section__tail reveal">
-          <div class="facts">
-            <div class="fact"><span class="fact__k">DM</span><span class="fact__v" data-cz="Dungeons & Dragons — vlastní kampaně a světy" data-en="Dungeons & Dragons — homebrew campaigns and worlds"></span></div>
-            <div class="fact"><span class="fact__k">PLAY</span><span class="fact__v">Android: Netrunner · Twilight Imperium IV</span></div>
-          </div>
-          <a class="cta" href="#"><span data-cz="Ke stolu" data-en="Join the table"></span> →&nbsp;<span class="cta__soon">[soon]</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <footer class="footer" id="contact" aria-labelledby="contact-t">
-      <div class="marquee reveal"><div class="marquee__track" data-marquee></div></div>
-      <div class="wrap">
-        <p class="section__idx reveal">07 — <span data-cz="KONTAKT" data-en="CONTACT"></span></p>
-        <h2 class="footer__h2 reveal" id="contact-t" data-cz="Pojďme něco postavit" data-en="Let's build something"></h2>
-        <div class="contact reveal">
-          <a href="mailto:honza@vrzal.cz">honza@vrzal.cz</a>
-          <a href="https://github.com/janvrzal" target="_blank" rel="noopener">github.com/janvrzal</a>
-          <a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">linkedin.com/in/jan-vrzal</a>
-          <a href="https://instagram.com/jan_vrzal" target="_blank" rel="noopener">instagram.com/jan_vrzal</a>
-          <a href="#">Threads <span class="soon">[?]</span></a>
-        </div>
-        <div class="footer__bottom reveal">
-          <span>© 2026 JAN VRZAL</span>
-          <span class="status"><span class="status__dot"></span><span data-cz="OTEVŘEN NABÍDKÁM" data-en="OPEN TO WORK"></span></span>
-          <span>PRAHA / CZ</span>
-        </div>
-      </div>
+      <p class="foot__bottom lbl"><span>© 2026 Jan Vrzal</span><span><span data-cz="Praha" data-en="Prague">Praha</span> <span data-clock>--:--</span></span></p>
     </footer>
-
   </main>
 </body>
 </html>

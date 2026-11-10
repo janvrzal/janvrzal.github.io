@@ -1,64 +1,36 @@
 /* ============================================================
-   base.css — reset, document defaults, utilities
+   base.css — reset, typografie, utility
    ============================================================ */
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%}
 body{
-  background:var(--c-bg);
-  color:var(--c-ink);
-  font-family:var(--f-body);
-  font-weight:var(--fw-body);
+  background:var(--c-bg);color:var(--c-ink);
+  font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.55;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 a{color:inherit}
+img{display:block;max-width:100%;height:auto}
 button{font:inherit}
-canvas{display:block}
+table{border-collapse:collapse;width:100%}
+::selection{background:var(--c-accent);color:var(--c-accent-ink)}
+:where(section[id], footer[id]){scroll-margin-top:72px}
 
-/* kotvy nepodjedou pod fixní navbar */
-:where(section[id], footer[id], main[id]){scroll-margin-top:72px}
-
-/* [soon] odkazy — vizuálně „ještě nejde kliknout" */
-a[aria-disabled="true"]{cursor:not-allowed}
-
-/* viditelný focus jen pro klávesnici */
-:focus-visible{outline:2px solid var(--c-amber);outline-offset:3px;border-radius:1px}
+:focus-visible{outline:2px solid var(--c-accent);outline-offset:2px}
 :focus:not(:focus-visible){outline:none}
 
-/* skip-link — skrytý, dokud na něj uživatel netabne */
-.skip{
-  position:fixed;top:10px;left:10px;z-index:calc(var(--z-nav) + 2);
-  transform:translateY(-160%);transition:transform var(--dur-fast) var(--ease);
-  background:var(--c-amber);color:var(--c-amber-ink);text-decoration:none;
-  font-family:var(--f-mono);font-size:var(--fs-mono-s);letter-spacing:var(--ls-mono);
-  padding:10px 16px;
-}
+.skip{position:fixed;top:8px;left:8px;z-index:calc(var(--z-nav) + 1);transform:translateY(-200%);
+  background:var(--c-ink);color:var(--c-bg);padding:8px 14px;text-decoration:none}
 .skip:focus{transform:none}
 
-/* obsahový kontejner */
-.wrap{
-  width:100%;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 var(--pad-x);
-}
+/* 12sloupcová mřížka */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad-x);
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+.wrap > *{grid-column:1 / -1}
 
-/* odhalování při scrollu */
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.reveal.in{opacity:1;transform:none}
+/* popisky a data */
+.lbl{font-size:var(--fs-lbl);font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+.mono{font-family:var(--f-mono);font-weight:400;letter-spacing:0;text-transform:none}
+.cap{font-size:var(--fs-small);color:var(--c-mute);margin-top:12px;max-width:68ch}
+.sq{display:inline-block;width:10px;height:10px;background:var(--c-accent);flex:none}
 
-/* a11y: skrytý, ale čitelný pro čtečky */
-.visually-hidden{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important}
-}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }

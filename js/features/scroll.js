@@ -1,18 +1,13 @@
 /* ============================================================
    features/scroll.js — chování při scrollu:
-   • scroll-bar:  průběh načtené stránky (amber proužek nahoře)
    • nav.is-scrolled: jemné sklo na navbaru po opuštění hero
    • scroll-spy:  zvýraznění odkazu na sekci, ve které právě jsi
    ============================================================ */
 export function initScroll() {
-  const bar = document.querySelector('[data-scroll-bar]');
   const nav = document.querySelector('.nav');
 
   function onScroll() {
     const h = document.documentElement;
-    const max = h.scrollHeight - h.clientHeight;
-    const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
-    if (bar) bar.style.width = p + '%';
     if (nav) nav.classList.toggle('is-scrolled', h.scrollTop > 24);
   }
 

@@ -8,37 +8,22 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --c-bg:#0c0b08; --c-ink:#efe9dd; --c-amber:#f6a700; --c-mute:#857e70;
-      --f-display:'Anybody',sans-serif; --f-mono:'IBM Plex Mono',monospace;
-    }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      background:var(--c-bg);color:var(--c-ink);font-family:var(--f-mono);
-      min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-      align-items:flex-start;gap:22px;padding:0 6vw;-webkit-font-smoothing:antialiased;
-    }
-    .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--c-mute)}
-    h1{
-      font-family:var(--f-display);font-weight:900;font-variation-settings:'wdth' 120;
-      font-size:clamp(96px,28vw,360px);line-height:.8;letter-spacing:-.02em;color:var(--c-amber);
-    }
-    p{font-size:14px;letter-spacing:.06em;color:var(--c-mute);max-width:46ch;line-height:1.6}
-    a.home{
-      display:inline-flex;align-items:center;gap:11px;margin-top:8px;
-      font-size:13px;letter-spacing:.06em;text-decoration:none;color:var(--c-ink);
-      padding:15px 24px;border:1px solid var(--c-ink);transition:background .2s,color .2s,border-color .2s;
-    }
-    a.home:hover{background:var(--c-amber);border-color:var(--c-amber);color:var(--c-bg)}
-    :focus-visible{outline:2px solid var(--c-amber);outline-offset:3px}
+    body{background:#fff;color:#111;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;
+      min-height:100vh;padding:24px clamp(16px,3.5vw,40px);display:flex;flex-direction:column;gap:20px}
+    header{border-bottom:2px solid #111;padding-bottom:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+    h1{font-size:clamp(64px,14vw,160px);font-weight:600;line-height:1;letter-spacing:-.03em;margin-top:8vh}
+    p{font-size:17px;color:#3d3d3d;max-width:46ch}
+    a{color:#111;font-weight:500;text-decoration:none;border-bottom:3px solid #ff5c00;align-self:flex-start}
+    :focus-visible{outline:2px solid #ff5c00;outline-offset:2px}
   </style>
 </head>
 <body>
-  <p class="eyebrow">ERROR 404 — PRAHA / CZ</p>
+  <header>Jan Vrzal</header>
   <h1>404</h1>
-  <p>Tahle stránka leží za hranicí mapy. / This page lies beyond the edge of the map.</p>
-  <a class="home" href="/">← <span>zpět domů / back home</span></a>
+  <p>Tahle stránka neexistuje. / This page doesn't exist.</p>
+  <a href="/">Zpět na úvod / Back home →</a>
 </body>
 </html>

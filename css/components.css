@@ -1,64 +1,68 @@
 /* ============================================================
-   components.css — reusable UI components
+   components.css — dlaždice projektů, tabulky, čísla, seznamy
    ============================================================ */
 
-/* ---------- LANG TOGGLE ---------- */
-.lang{display:flex;gap:3px;align-items:center;color:var(--c-mute)}
-.lang button{background:none;border:none;color:var(--c-mute);cursor:pointer;
-  padding:3px 5px;letter-spacing:var(--ls-mono)}
-.lang button.is-active{color:var(--c-amber)}
+/* ---------- dlaždice projektů (3 sloupce) ---------- */
+.tiles{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+.tiles a{display:flex;flex-direction:column;gap:10px;height:100%;padding:16px 0 20px;text-decoration:none;
+  border-top:1px solid var(--c-line);position:relative}
+.tiles a::before{content:"";position:absolute;left:0;right:0;top:-1px;height:4px;background:var(--c-accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.tiles a:hover::before{transform:none}
+.tile__n{font-size:13px;color:var(--c-mute)}
+.tile__k{display:flex;align-items:center;gap:8px}
+.tile__t{font-size:26px;font-weight:600;letter-spacing:-.015em;line-height:1.15;margin-top:12px}
+.tile__d{color:var(--c-ink-2);font-size:var(--fs-small);max-width:40ch}
+.tile__go{margin-top:auto;padding-top:14px;font-size:var(--fs-small);font-weight:500}
+.tile__go::after{content:" →";color:var(--c-accent)}
+@media (min-width:900px){ #work .tiles{grid-column:4 / 13} }
+@media (max-width:760px){ .tiles{grid-template-columns:1fr} }
 
-/* ---------- CTA BUTTON (portál ven) ---------- */
-.cta{
-  display:inline-flex;align-items:center;gap:11px;justify-self:start;white-space:nowrap;
-  font-family:var(--f-mono);font-size:var(--fs-mono);letter-spacing:.06em;text-decoration:none;
-  padding:16px 26px;border:1px solid var(--c-ink);transition:background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
-}
-.cta:hover{background:var(--c-amber);border-color:var(--c-amber);color:var(--c-amber-ink)}
-.cta__soon{color:var(--c-mute);font-size:10px;letter-spacing:.1em}
+/* ---------- kroky ---------- */
+.steps{list-style:none;counter-reset:s;border-top:1px solid var(--c-line)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr) minmax(0,1.6fr);gap:var(--gap);
+  padding:14px 0;border-bottom:1px solid var(--c-line);align-items:baseline}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-mono);font-size:13px;color:var(--c-mute)}
+.steps b{font-weight:600}
+.steps span{color:var(--c-ink-2);font-size:var(--fs-small)}
+@media (max-width:640px){ .steps li{grid-template-columns:32px minmax(0,1fr);row-gap:4px} .steps span{grid-column:2} }
+.arrow-link{display:inline-block;margin-top:20px;font-weight:500;text-decoration:none}
+.arrow-link::after{content:" →";color:var(--c-accent)}
+.arrow-link:hover{color:var(--c-accent-text)}
 
-/* ---------- FACTS LIST ---------- */
-.facts{display:flex;flex-direction:column}
-.fact{padding:15px 0;border-top:1px solid var(--c-line);display:flex;gap:18px}
-.fact:last-child{border-bottom:1px solid var(--c-line)}
-.fact__k{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.14em;
-  color:var(--c-mute);flex:0 0 86px;padding-top:3px}
-.fact__v{font-size:var(--fs-fact);line-height:1.4;color:var(--c-ink)}
-.fact__v b{color:var(--c-amber);font-weight:var(--fw-bold)}
-.fact__v a{color:var(--c-amber);text-decoration:none;border-bottom:1px solid var(--c-line);
-  transition:border-color var(--dur-fast)}
-.fact__v a:hover{border-color:var(--c-amber)}
-
-/* ---------- CONTACT LINKS ---------- */
-.contact{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:38px;
-  font-family:var(--f-mono);font-size:15px;letter-spacing:.04em}
-.contact a{color:var(--c-ink);text-decoration:none;border-bottom:1px solid var(--c-line);
-  padding-bottom:3px;transition:border-color var(--dur-fast), color var(--dur-fast)}
-.contact a:hover{border-color:var(--c-amber);color:var(--c-amber)}
-.contact .soon{color:var(--c-mute);font-size:10px}
-
-/* ---------- TECH CHIPS (skenovatelný stack) ---------- */
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:var(--f-mono);font-size:var(--fs-mono-xs);letter-spacing:.06em;
-  color:var(--c-ink);border:1px solid var(--c-line);padding:6px 11px;white-space:nowrap;
-  transition:border-color var(--dur-fast), color var(--dur-fast)}
-.chip:hover{border-color:var(--c-amber);color:var(--c-amber)}
-
-/* status tečka */
-.status{display:flex;align-items:center;gap:9px;color:var(--c-ink)}
-.status__dot{width:7px;height:7px;border-radius:50%;background:var(--c-amber);animation:pulse 2.4s infinite}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(246,167,0,.45)}
-  70%{box-shadow:0 0 0 12px rgba(246,167,0,0)}
-  100%{box-shadow:0 0 0 0 rgba(246,167,0,0)}
+/* ---------- tabulkové řádky ---------- */
+.rows{border-top:1px solid var(--c-line)}
+.rows tr{border-bottom:1px solid var(--c-line)}
+.rows th,.rows td{text-align:left;vertical-align:top;padding:14px 0}
+.rows th{font-weight:600;width:30%;padding-right:var(--gap)}
+.rows th small{display:block;margin-top:2px;font-size:12px;font-weight:400;color:var(--c-mute)}
+.rows td{color:var(--c-ink-2);font-size:var(--fs-small)}
+.rows td.mono{width:72px;color:var(--c-mute);font-size:13px;padding-right:12px}
+.rows a{color:var(--c-ink);text-decoration:none;border-bottom:1px solid var(--c-accent)}
+.rows a:hover{color:var(--c-accent-text)}
+.rows--sod th{width:20%}
+@media (max-width:640px){
+  .rows tr{display:grid;grid-template-columns:auto 1fr;column-gap:12px;padding:12px 0}
+  .rows th,.rows td{padding:0;width:auto}
+  .rows td:not(.mono){grid-column:1 / -1;margin-top:4px}
+  .rows td.mono + th{grid-column:2}
 }
 
-/* ---------- MARQUEE ---------- */
-.marquee{overflow:hidden;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);
-  padding:18px 0;margin-bottom:60px}
-.marquee__track{display:flex;width:max-content;animation:marquee 24s linear infinite}
-.marquee:hover .marquee__track{animation-play-state:paused}
-.marquee span{font-family:var(--f-display);font-weight:var(--fw-black);font-size:34px;
-  text-transform:uppercase;letter-spacing:-.01em;color:var(--c-ink);padding-right:.4em;white-space:nowrap}
-.marquee span.is-outline{color:var(--c-amber)}
-@keyframes marquee{to{transform:translateX(-50%)}}
+/* ---------- čísla ---------- */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));column-gap:var(--gap);
+  border-top:1px solid var(--c-line);margin-top:32px}
+.nums div{padding:12px 0}
+.nums dt{color:var(--c-mute)}
+.nums dd{font-size:34px;font-weight:500;letter-spacing:-.02em;line-height:1.1;margin-top:6px}
+
+/* ---------- seznamy ---------- */
+.list{list-style:none;border-top:1px solid var(--c-line)}
+.list li{padding:12px 0 12px 28px;border-bottom:1px solid var(--c-line);position:relative;color:var(--c-ink-2);max-width:68ch}
+.list li::before{content:"";position:absolute;left:0;top:21px;width:12px;height:2px;background:var(--c-accent)}
+.list--num{counter-reset:n;margin-top:20px}
+.list--num li::before{counter-increment:n;content:counter(n);width:auto;height:auto;background:none;top:12px;
+  font-family:var(--f-mono);font-size:13px;color:var(--c-mute)}
+
+/* ---------- obrázek ---------- */
+.figure{margin:0}
+.figure img{width:100%;border:1px solid var(--c-line)}

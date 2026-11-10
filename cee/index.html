@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conlang Evolution Engine — Jan Vrzal</title>
+  <meta name="description" content="Případová studie: simulátor vývoje jazyků v Rustu, vedený s týmem AI agentů, s deterministickým jádrem a statistickými branami.">
+  <link rel="canonical" href="https://janvrzal.github.io/cee/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Conlang Evolution Engine — Jan Vrzal">
+  <meta property="og:description" content="Případová studie: simulátor vývoje jazyků v Rustu, vedený s týmem AI agentů, s deterministickým jádrem a statistickými branami.">
+  <meta property="og:url" content="https://janvrzal.github.io/cee/">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:image" content="https://janvrzal.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/features.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-cz="Přeskočit na obsah" data-en="Skip to content">Přeskočit na obsah</a>
+  <nav class="nav" aria-label="Hlavní navigace">
+    <a href="../index.html" class="nav__logo">Jan Vrzal</a>
+    <div class="nav__links" id="nav-menu">
+      <a href="../index.html#work" data-cz="Projekty" data-en="Projects">Projekty</a>
+      <a href="../esd/index.html" data-cz="ESD" data-en="ESD">ESD</a>
+      <a href="../cee/index.html" aria-current="page" class="is-current" data-cz="CEE" data-en="CEE">CEE</a>
+      <a href="../arthea/index.html" data-cz="Arthea" data-en="Arthea">Arthea</a>
+      <a href="#contact" data-cz="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <div class="lang" aria-label="Jazyk / Language">
+      <button data-lang-btn="cz" class="is-active">CZ</button><button data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav__burger" data-nav-burger aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+  <main id="main">
+
+    <header class="phead wrap">
+      <a class="back lbl" href="../index.html#work" data-cz="← Projekty" data-en="← Projects">← Projekty</a>
+      <p class="phead__n"><span class="mono">02</span><i class="sq"></i><span class="lbl" data-cz="Výzkum" data-en="Research">Výzkum</span></p>
+      <h1 class="phead__h col-a">Conlang Evolution Engine</h1>
+      <p class="phead__p col-a" data-cz="Simulátor vývoje jazyků. Ze zadaného protojazyka a fiktivního světa (regionů, měst, států a historických událostí) spočítá jazykovou rodinu za 1 000 až 5 000 let: zvukové změny, tvarosloví, syntax, posuny významu, kontakt jazyků, migrace, písmo a standardizaci. U každého slova lze dohledat, z čeho vzniklo." data-en="A language evolution simulator. From a given proto-language and a fictional world (regions, cities, states and historical events), it computes a language family over 1,000 to 5,000 years: sound change, morphology, syntax, meaning shifts, language contact, migration, writing and standardization. Every word can be traced back to its origin.">Simulátor vývoje jazyků. Ze zadaného protojazyka a fiktivního světa (regionů, měst, států a historických událostí) spočítá jazykovou rodinu za 1 000 až 5 000 let: zvukové změny, tvarosloví, syntax, posuny významu, kontakt jazyků, migrace, písmo a standardizaci. U každého slova lze dohledat, z čeho vzniklo.</p>
+      <dl class="facts">
+        <div><dt class="lbl" data-cz="Role" data-en="Role">Role</dt><dd data-cz="Autor, vedení vývoje" data-en="Author, development lead">Autor, vedení vývoje</dd></div>
+        <div><dt class="lbl" data-cz="Období" data-en="Period">Období</dt><dd data-cz="28. 8. – 9. 11. 2026" data-en="28 Aug – 9 Nov 2026">28. 8. – 9. 11. 2026</dd></div>
+        <div><dt class="lbl" data-cz="Stav" data-en="Status">Stav</dt><dd data-cz="Ve vývoji" data-en="In development">Ve vývoji</dd></div>
+        <div><dt class="lbl">Stack</dt><dd>Rust, Python, SvelteKit, Tauri</dd></div>
+      </dl>
+    </header>
+
+    <section class="block wrap" id="problem">
+      <h2 class="block__h"><span class="mono">1</span><span class="lbl" data-cz="Problém" data-en="Problem">Problém</span></h2>
+      <div class="block__body">
+        <p data-cz="Jazyk se mění tisíci drobných posunů, které se šíří mezi lidmi, městy a státy. Zvuková změna naruší tvarosloví, analogie ho zčásti opraví, kontakt s jiným jazykem proces zrychlí. Většina těchto jevů je náhodná, takže z jednoho běhu simulace nelze nic vyvozovat." data-en="Language changes through thousands of small shifts spreading between people, cities and states. A sound change disrupts the morphology, analogy partly repairs it, contact with another language speeds it up. Most of this is random, so a single simulation run supports no conclusions.">Jazyk se mění tisíci drobných posunů, které se šíří mezi lidmi, městy a státy. Zvuková změna naruší tvarosloví, analogie ho zčásti opraví, kontakt s jiným jazykem proces zrychlí. Většina těchto jevů je náhodná, takže z jednoho běhu simulace nelze nic vyvozovat.</p>
+        <p data-cz="Existující nástroje pro tvůrce jazyků pravidla zvukových změn pouze aplikují a uživatel je musí napsat sám. CEE pravidla navrhuje podle doložených jazykových dějin. Výzkumná otázka zní, zda lze efekt jedné změny ve scénáři, například silnějšího kontaktu dvou jazyků, měřit reprodukovatelně přes mnoho běhů." data-en="Existing tools for language creators only apply sound-change rules that the user has to write. CEE proposes the rules based on attested language history. The research question is whether the effect of one change to a scenario, for example stronger contact between two languages, can be measured reproducibly across many runs.">Existující nástroje pro tvůrce jazyků pravidla zvukových změn pouze aplikují a uživatel je musí napsat sám. CEE pravidla navrhuje podle doložených jazykových dějin. Výzkumná otázka zní, zda lze efekt jedné změny ve scénáři, například silnějšího kontaktu dvou jazyků, měřit reprodukovatelně přes mnoho běhů.</p>
+        <figure class="trace">
+          <figcaption class="lbl" data-cz="Ověření na latině: zvukové zákony aplikované na protolexikon" data-en="Validation on Latin: sound laws applied to a proto-lexicon">Ověření na latině: zvukové zákony aplikované na protolexikon</figcaption>
+          <table>
+            <tr><td>*amiku</td><td class="r" data-cz="znělost mezi samohláskami" data-en="intervocalic voicing">znělost mezi samohláskami</td><td>amiɡu</td><td class="r" data-cz="koncové -u &gt; -o" data-en="final -u &gt; -o">koncové -u &gt; -o</td><td><b>amiɡo</b></td></tr>
+            <tr><td>*matre</td><td class="r" data-cz="znělost mezi samohláskami" data-en="intervocalic voicing">znělost mezi samohláskami</td><td><b>madre</b></td><td></td><td></td></tr>
+            <tr><td>*kapra</td><td class="r" data-cz="znělost mezi samohláskami" data-en="intervocalic voicing">znělost mezi samohláskami</td><td><b>kabra</b></td><td></td><td></td></tr>
+          </table>
+        </figure>
+      </div>
+    </section>
+
+    <section class="block wrap" id="role">
+      <h2 class="block__h"><span class="mono">2</span><span class="lbl" data-cz="Moje role" data-en="My role">Moje role</span></h2>
+      <div class="block__body">
+        <p data-cz="Určuji produktový směr, doménový model a architekturu. Navrhl jsem postup práce s více agenty, definuji validační kritéria a kalibrační cíle, kontroluji a integruji všechny změny a navrhuji rozhraní." data-en="I set the product direction, the domain model and the architecture. I designed the multi-agent workflow, define the validation criteria and calibration targets, review and integrate every change, and design the interface.">Určuji produktový směr, doménový model a architekturu. Navrhl jsem postup práce s více agenty, definuji validační kritéria a kalibrační cíle, kontroluji a integruji všechny změny a navrhuji rozhraní.</p>
+        <p data-cz="Implementaci převážně napsali AI agenti. Z 640 commitů jich 501 vzniklo ve spolupráci s Claudem." data-en="AI agents wrote most of the implementation. Of 640 commits, 501 were co-authored with Claude.">Implementaci převážně napsali AI agenti. Z 640 commitů jich 501 vzniklo ve spolupráci s Claudem.</p>
+        <ol class="cells" aria-label="Tok práce">
+          <li class="is-on"><span class="lbl" data-cz="Já" data-en="Me">Já</span><b data-cz="Zadání, model, kritéria" data-en="Brief, model, criteria">Zadání, model, kritéria</b></li>
+          <li><span class="lbl" data-cz="Hlavní agent" data-en="Lead agent">Hlavní agent</span><b data-cz="Rozdělení a integrace" data-en="Splitting and integration">Rozdělení a integrace</b></li>
+          <li><span class="lbl" data-cz="Podagenti" data-en="Subagents">Podagenti</span><b data-cz="Vlastní worktree a větev" data-en="Own worktree and branch">Vlastní worktree a větev</b></li>
+          <li><span class="lbl" data-cz="Brány" data-en="Gates">Brány</span><b data-cz="Testy, statistika, otisky" data-en="Tests, statistics, digests">Testy, statistika, otisky</b></li>
+          <li class="is-on"><span class="lbl" data-cz="Já" data-en="Me">Já</span><b data-cz="Kontrola a sloučení" data-en="Review and merge">Kontrola a sloučení</b></li>
+        </ol>
+        <table class="rows">
+          <tr><th data-cz="Dokumentace" data-en="Documentation">Dokumentace</th><td data-cz="Pravidla pro agenty v AGENT.md, 13 záznamů architektonických rozhodnutí (ADR) a soubor s ověřeným stavem projektu. Agenti z nich čtou kontext v každém novém sezení." data-en="Rules for agents in AGENT.md, 13 architecture decision records (ADRs) and a file with the verified project state. Agents read context from them in every new session.">Pravidla pro agenty v AGENT.md, 13 záznamů architektonických rozhodnutí (ADR) a soubor s ověřeným stavem projektu. Agenti z nich čtou kontext v každém novém sezení.</td></tr>
+          <tr><th data-cz="Ověřování" data-en="Verification">Ověřování</th><td data-cz="Náhodné jevy kontrolují statistické brány typu „k z N“ s prahem podle dolní Wilsonovy meze. Když změna bránu neprojde, nezkouší se jiné semínko; měří se míra průchodu před změnou a po ní." data-en="Random behaviour is checked by “k of N” statistical gates with thresholds from the Wilson lower bound. When a change fails a gate, nobody tries a different seed; the pass rate is measured before and after the change.">Náhodné jevy kontrolují statistické brány typu „k z N“ s prahem podle dolní Wilsonovy meze. Když změna bránu neprojde, nezkouší se jiné semínko; měří se míra průchodu před změnou a po ní.</td></tr>
+          <tr><th data-cz="Úpravy postupu" data-en="Process changes">Úpravy postupu</th><td data-cz="Když agenti opakují stejnou chybu, upravím pravidla. Při přepisu do Rustu se například nespouštěla sada testů v Pythonu, protože už neověřovala nový kód." data-en="When agents repeat a mistake, I change the rules. During the Rust rewrite, for example, the Python test suite was not run, because it no longer tested the new code.">Když agenti opakují stejnou chybu, upravím pravidla. Při přepisu do Rustu se například nespouštěla sada testů v Pythonu, protože už neověřovala nový kód.</td></tr>
+          <tr><th data-cz="Rozhraní" data-en="Interface">Rozhraní</th><td data-cz="Design systém podle atomic designu, schvalovaný po vrstvách. Test v kódu kontroluje, že obrazovky používají jen jeho komponenty." data-en="A design system following atomic design, approved layer by layer. A test in the code checks that screens use only its components.">Design systém podle atomic designu, schvalovaný po vrstvách. Test v kódu kontroluje, že obrazovky používají jen jeho komponenty.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="block wrap" id="decisions">
+      <h2 class="block__h"><span class="mono">3</span><span class="lbl" data-cz="Rozhodnutí" data-en="Decisions">Rozhodnutí</span></h2>
+      <div class="block__body">
+        <table class="rows">
+          <tr><th><span data-cz="Přepis do Rustu" data-en="Rust rewrite">Přepis do Rustu</span><small class="mono" data-cz="3. 11. 2026" data-en="3 Nov 2026">3. 11. 2026</small></th><td data-cz="Engine v Pythonu měl 24 500 řádků a byl pomalý. Požadavek na bitovou shodu s Pythonem by přepis zdržel, proto se nový engine přijímá podle chování: musí projít branami milníků a být deterministický. Na základu pracovali čtyři agenti souběžně, Python engine se pak smazal." data-en="The Python engine had 24,500 lines and was slow. Requiring bit-for-bit parity with Python would have held the rewrite up, so the new engine is accepted on behaviour: it must pass the milestone gates and be deterministic. Four agents worked on the base in parallel; the Python engine was then deleted.">Engine v Pythonu měl 24 500 řádků a byl pomalý. Požadavek na bitovou shodu s Pythonem by přepis zdržel, proto se nový engine přijímá podle chování: musí projít branami milníků a být deterministický. Na základu pracovali čtyři agenti souběžně, Python engine se pak smazal.</td></tr>
+          <tr><th data-cz="Kalibrace" data-en="Calibration">Kalibrace</th><td data-cz="Simulace nemá zopakovat skutečné dějiny. Zpětné testy na románských jazycích proto neměří přesné letopočty, ale podobnost výsledné rodiny, například kolik větví ztratí pády nebo jak se šíří zápor." data-en="The simulation isn't meant to replay real history. Backtests on the Romance languages therefore don't measure exact dates but how similar the resulting family is, for example how many branches lose case or how negation spreads.">Simulace nemá zopakovat skutečné dějiny. Zpětné testy na románských jazycích proto neměří přesné letopočty, ale podobnost výsledné rodiny, například kolik větví ztratí pády nebo jak se šíří zápor.</td></tr>
+          <tr><th data-cz="Bez AI za běhu" data-en="No AI at runtime">Bez AI za běhu</th><td data-cz="Jazykový model by dal při stejném zadání pokaždé jiný výsledek a experimenty by nešly zopakovat. Engine je deterministický: stejné semínko dá stejnou historii při 1 až 8 vláknech." data-en="A language model would give a different result for the same input each time, and experiments couldn't be repeated. The engine is deterministic: the same seed gives the same history on 1 to 8 threads.">Jazykový model by dal při stejném zadání pokaždé jiný výsledek a experimenty by nešly zopakovat. Engine je deterministický: stejné semínko dá stejnou historii při 1 až 8 vláknech.</td></tr>
+          <tr><th data-cz="Model mluvčích" data-en="Speaker model">Model mluvčích</th><td data-cz="Jazyk je modelovaný jako skupiny mluvčích v regionech. Region je bod a jeho území Voronoiova buňka. Nářeční kontinuum tak vzniká z geografie." data-en="A language is modelled as groups of speakers across regions. A region is a point and its territory a Voronoi cell. Dialect continua then emerge from the geography.">Jazyk je modelovaný jako skupiny mluvčích v regionech. Region je bod a jeho území Voronoiova buňka. Nářeční kontinuum tak vzniká z geografie.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="block wrap" id="numbers">
+      <h2 class="block__h"><span class="mono">4</span><span class="lbl" data-cz="Čísla" data-en="Numbers">Čísla</span></h2>
+      <div class="block__body">
+        <dl class="nums">
+          <div><dt class="lbl" data-cz="Týdnů" data-en="Weeks">Týdnů</dt><dd>10</dd></div>
+          <div><dt class="lbl" data-cz="Commitů" data-en="Commits">Commitů</dt><dd>640</dd></div>
+          <div><dt class="lbl" data-cz="S Claudem" data-en="With Claude">S Claudem</dt><dd>501</dd></div>
+          <div><dt class="lbl" data-cz="Milníků" data-en="Milestones">Milníků</dt><dd>16</dd></div>
+          <div><dt class="lbl">ADR</dt><dd>13</dd></div>
+          <div><dt class="lbl" data-cz="Paralelizace" data-en="Parallel speed-up">Paralelizace</dt><dd>1,6–2,8×</dd></div>
+        </dl>
+        <p class="cap" data-cz="Zrychlení vícevláknového běhu proti jednomu vláknu při stejném výsledku. Data: WALS, WOLD, IE-CoR, PHOIBLE, DatSemShift, Concepticon." data-en="Multi-threaded speed-up versus a single thread, with identical results. Data: WALS, WOLD, IE-CoR, PHOIBLE, DatSemShift, Concepticon.">Zrychlení vícevláknového běhu proti jednomu vláknu při stejném výsledku. Data: WALS, WOLD, IE-CoR, PHOIBLE, DatSemShift, Concepticon.</p>
+      </div>
+    </section>
+
+    <section class="block wrap" id="lessons">
+      <h2 class="block__h"><span class="mono">5</span><span class="lbl" data-cz="Co bych udělal jinak" data-en="What I'd change">Co bych udělal jinak</span></h2>
+      <div class="block__body">
+        <ul class="list">
+          <li data-cz="Výkon jsem řešil pozdě. Engine v2 vznikl celý v Pythonu a teprve potom se přepisoval do Rustu." data-en="I dealt with performance late. Engine v2 was written entirely in Python before being rewritten in Rust.">Výkon jsem řešil pozdě. Engine v2 vznikl celý v Pythonu a teprve potom se přepisoval do Rustu.</li>
+          <li data-cz="Pravidla pro agenty vznikala až po jejich chybách. Část z nich šla napsat předem." data-en="Rules for agents were written only after their mistakes. Some could have been written up front.">Pravidla pro agenty vznikala až po jejich chybách. Část z nich šla napsat předem.</li>
+          <li data-cz="Souběžné worktree je potřeba průběžně uklízet, jinak se ztrácí přehled o tom, co čeká na sloučení." data-en="Parallel worktrees need regular cleanup, or it becomes unclear what is waiting to be merged.">Souběžné worktree je potřeba průběžně uklízet, jinak se ztrácí přehled o tom, co čeká na sloučení.</li>
+        </ul>
+      </div>
+    </section>
+
+    <a class="nextp wrap" href="../arthea/index.html">
+      <span class="lbl" data-cz="Další projekt" data-en="Next project">Další projekt</span>
+      <span class="nextp__t">Arthea</span>
+    </a>
+
+
+    <footer class="foot wrap" id="contact">
+      <h2 class="block__h"><span class="lbl" data-cz="Kontakt" data-en="Contact">Kontakt</span></h2>
+      <div class="foot__body">
+        <a class="foot__mail" href="mailto:honza@vrzal.cz">honza@vrzal.cz</a>
+        <ul class="foot__links">
+          <li><a href="https://github.com/janvrzal" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/jan_vrzal" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <p class="foot__bottom lbl"><span>© 2026 Jan Vrzal</span><span><span data-cz="Praha" data-en="Prague">Praha</span> <span data-clock>--:--</span></span></p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -16,13 +16,17 @@ export function applyStatic() {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-cz]').forEach(el => {
     const v = el.getAttribute('data-' + lang);
-    if (v != null) el.textContent = v;
+    if (v == null) return;
+    // data-html: obsah píšu já přímo v index.html, takže smí nést <em>/<span>
+    if (el.hasAttribute('data-html')) el.innerHTML = v;
+    else el.textContent = v;
   });
 }
 
 /** Nastaví jazyk, přepíše text, aktualizuje přepínač a notifikuje widgety. */
 export function setLang(next) {
   lang = next;
+  try { localStorage.setItem('lang', lang); } catch (e) { /* bez úložiště */ }
   applyStatic();
   document.querySelectorAll('[data-lang-btn]').forEach(b => {
     b.classList.toggle('is-active', b.dataset.langBtn === lang);

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://janvrzal.github.io/</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://janvrzal.github.io/</loc></url>
+  <url><loc>https://janvrzal.github.io/esd/</loc></url>
+  <url><loc>https://janvrzal.github.io/cee/</loc></url>
+  <url><loc>https://janvrzal.github.io/arthea/</loc></url>
 </urlset>

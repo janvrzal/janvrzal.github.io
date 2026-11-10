@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panelreko ESD — Jan Vrzal</title>
+  <meta name="description" content="Případová studie: provozní systém stavební firmy, navržený a uvedený do provozu s AI agenty jako implementačním týmem.">
+  <link rel="canonical" href="https://janvrzal.github.io/esd/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Panelreko ESD — Jan Vrzal">
+  <meta property="og:description" content="Případová studie: provozní systém stavební firmy, navržený a uvedený do provozu s AI agenty jako implementačním týmem.">
+  <meta property="og:url" content="https://janvrzal.github.io/esd/">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:image" content="https://janvrzal.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/features.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-cz="Přeskočit na obsah" data-en="Skip to content">Přeskočit na obsah</a>
+  <nav class="nav" aria-label="Hlavní navigace">
+    <a href="../index.html" class="nav__logo">Jan Vrzal</a>
+    <div class="nav__links" id="nav-menu">
+      <a href="../index.html#work" data-cz="Projekty" data-en="Projects">Projekty</a>
+      <a href="../esd/index.html" aria-current="page" class="is-current" data-cz="ESD" data-en="ESD">ESD</a>
+      <a href="../cee/index.html" data-cz="CEE" data-en="CEE">CEE</a>
+      <a href="../arthea/index.html" data-cz="Arthea" data-en="Arthea">Arthea</a>
+      <a href="#contact" data-cz="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <div class="lang" aria-label="Jazyk / Language">
+      <button data-lang-btn="cz" class="is-active">CZ</button><button data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav__burger" data-nav-burger aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+  <main id="main">
+
+    <header class="phead wrap">
+      <a class="back lbl" href="../index.html#work" data-cz="← Projekty" data-en="← Projects">← Projekty</a>
+      <p class="phead__n"><span class="mono">01</span><i class="sq"></i><span class="lbl" data-cz="Produkce" data-en="Production">Produkce</span></p>
+      <h1 class="phead__h col-a">Panelreko ESD</h1>
+      <p class="phead__p col-a" data-cz="Interní systém firmy Panelreko, která rekonstruuje bytová jádra v panelových domech. Pokrývá zakázku od poptávky po záruku. Systém jsem navrhl jako produktový vlastník a architekt; implementaci psali AI agenti podle mých pravidel a testů." data-en="An internal system for Panelreko, a company that renovates bathroom cores in prefab apartment blocks. It covers a job from inquiry to warranty. I designed it as product owner and architect; AI agents wrote the implementation under my rules and tests.">Interní systém firmy Panelreko, která rekonstruuje bytová jádra v panelových domech. Pokrývá zakázku od poptávky po záruku. Systém jsem navrhl jako produktový vlastník a architekt; implementaci psali AI agenti podle mých pravidel a testů.</p>
+      <dl class="facts">
+        <div><dt class="lbl" data-cz="Role" data-en="Role">Role</dt><dd data-cz="Produkt a architektura" data-en="Product and architecture">Produkt a architektura</dd></div>
+        <div><dt class="lbl" data-cz="Začátek" data-en="Started">Začátek</dt><dd data-cz="13. 7. 2026" data-en="13 Jul 2026">13. 7. 2026</dd></div>
+        <div><dt class="lbl" data-cz="V provozu" data-en="In production">V provozu</dt><dd data-cz="od srpna 2026" data-en="since Aug 2026">od srpna 2026</dd></div>
+        <div><dt class="lbl" data-cz="Uživatelé" data-en="Users">Uživatelé</dt><dd data-cz="technici, dispečink, vedení, řemeslníci, zákazníci" data-en="technicians, dispatch, management, craftsmen, customers">technici, dispečink, vedení, řemeslníci, zákazníci</dd></div>
+      </dl>
+    </header>
+
+    <section class="block wrap" id="context">
+      <h2 class="block__h"><span class="mono">1</span><span class="lbl" data-cz="Kontext" data-en="Context">Kontext</span></h2>
+      <div class="block__body">
+        <p data-cz="Rekonstrukce bytového jádra trvá 10 až 14 pracovních dní. Během nich se musí sladit řemeslníci, materiál, zákazník a stavební deník, který má právní váhu. Běžná CRM ani stavební software tyto části nepropojovaly." data-en="A bathroom-core renovation takes 10 to 14 working days. In that time, craftsmen, materials, the customer and a legally binding site diary all have to line up. Off-the-shelf CRMs and construction software didn't connect these.">Rekonstrukce bytového jádra trvá 10 až 14 pracovních dní. Během nich se musí sladit řemeslníci, materiál, zákazník a stavební deník, který má právní váhu. Běžná CRM ani stavební software tyto části nepropojovaly.</p>
+        <p data-cz="ESD má pět částí: CRM a komunikace, zakázky a stavební deník, zákaznický portál, aplikace pro řemeslníky a napojení na rozpočtový systém euroCALC." data-en="ESD has five parts: CRM and communication, projects and the site diary, the customer portal, the craftsman app, and the link to the euroCALC budgeting system.">ESD má pět částí: CRM a komunikace, zakázky a stavební deník, zákaznický portál, aplikace pro řemeslníky a napojení na rozpočtový systém euroCALC.</p>
+        <ol class="flow" aria-label="Stavy zakázky">
+          <li data-cz="Poptávka" data-en="Lead">Poptávka</li>
+          <li data-cz="Nabídka" data-en="Offer">Nabídka</li>
+          <li data-cz="Smlouva" data-en="Contract">Smlouva</li>
+          <li class="is-on" data-cz="Realizace" data-en="Build">Realizace</li>
+          <li data-cz="Záruka" data-en="Warranty">Záruka</li>
+          <li data-cz="Uzavřeno" data-en="Closed">Uzavřeno</li>
+        </ol>
+        <p class="cap" data-cz="Stavy zakázky. Mezi stavy se přechází jen auditovanými operacemi, stav nejde přepsat přímo." data-en="Project states. Transitions happen only through audited operations; the state can't be written directly.">Stavy zakázky. Mezi stavy se přechází jen auditovanými operacemi, stav nejde přepsat přímo.</p>
+        <dl class="nums">
+          <div><dt class="lbl" data-cz="Části systému" data-en="Domains">Části systému</dt><dd>5</dd></div>
+          <div><dt class="lbl" data-cz="Migrace DB" data-en="DB migrations">Migrace DB</dt><dd>140</dd></div>
+          <div><dt class="lbl" data-cz="Písemné plány" data-en="Written plans">Písemné plány</dt><dd>20+</dd></div>
+          <div><dt class="lbl" data-cz="Commity" data-en="Commits">Commity</dt><dd>1 617</dd></div>
+        </dl>
+        <p class="cap" data-cz="Čísla popisují rozsah systému. Většinu kódu napsali AI agenti, nejsou to moje řádky." data-en="The numbers describe the size of the system. AI agents wrote most of the code; these aren't my lines.">Čísla popisují rozsah systému. Většinu kódu napsali AI agenti, nejsou to moje řádky.</p>
+      </div>
+    </section>
+
+    <section class="block wrap" id="role">
+      <h2 class="block__h"><span class="mono">2</span><span class="lbl" data-cz="Moje role" data-en="My role">Moje role</span></h2>
+      <div class="block__body">
+        <table class="rows">
+          <tr><th data-cz="Produkt" data-en="Product">Produkt</th><td data-cz="Rozhovory s majitelem a zpětnou vazbu techniků jsem převáděl na priority a písemné plány. Rozhodoval jsem, co se postaví, v jakém pořadí a co ne." data-en="I turned conversations with the owner and technicians' feedback into priorities and written plans. I decided what to build, in what order, and what not to build.">Rozhovory s majitelem a zpětnou vazbu techniků jsem převáděl na priority a písemné plány. Rozhodoval jsem, co se postaví, v jakém pořadí a co ne.</td></tr>
+          <tr><th data-cz="Architektura" data-en="Architecture">Architektura</th><td data-cz="Rozdělení na pět částí, zakázka jako stavový automat, rozpočty přes adaptér k euroCALC." data-en="The split into five parts, the project as a state machine, budgets through an adapter to euroCALC.">Rozdělení na pět částí, zakázka jako stavový automat, rozpočty přes adaptér k euroCALC.</td></tr>
+          <tr><th data-cz="Bezpečnost a GDPR" data-en="Security and GDPR">Bezpečnost a GDPR</th><td data-cz="Neměnný stavební deník, schvalování dodatků vázané na konkrétní verzi dokumentu, oddělená data poboček, retence osobních údajů, export a výmaz na žádost." data-en="An immutable site diary, change-order approval tied to an exact document version, separated branch data, personal-data retention, export and erasure on request.">Neměnný stavební deník, schvalování dodatků vázané na konkrétní verzi dokumentu, oddělená data poboček, retence osobních údajů, export a výmaz na žádost.</td></tr>
+          <tr><th data-cz="Vývoj s AI" data-en="AI development">Vývoj s AI</th><td data-cz="Pravidla pro agenty s testy, hooky blokující rizikové příkazy, izolované větve, kontrolní brána před sloučením." data-en="Rules for agents backed by tests, hooks that block risky commands, isolated branches, a verification gate before merging.">Pravidla pro agenty s testy, hooky blokující rizikové příkazy, izolované větve, kontrolní brána před sloučením.</td></tr>
+          <tr><th data-cz="Design" data-en="Design">Design</th><td data-cz="Návrhy obrazovek ve variantách, výběr, jeden design systém s tokeny." data-en="Screen mock-ups in variants, selection, one design system with tokens.">Návrhy obrazovek ve variantách, výběr, jeden design systém s tokeny.</td></tr>
+          <tr><th data-cz="Provoz" data-en="Operations">Provoz</th><td data-cz="Nasazení bez výpadku, e-mailová infrastruktura, subdoména portálu, zálohy. Příkazy na serveru spouštím sám." data-en="Zero-downtime deploys, email infrastructure, the portal subdomain, backups. I run server commands myself.">Nasazení bez výpadku, e-mailová infrastruktura, subdoména portálu, zálohy. Příkazy na serveru spouštím sám.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="block wrap" id="process">
+      <h2 class="block__h"><span class="mono">3</span><span class="lbl" data-cz="Postup" data-en="Process">Postup</span></h2>
+      <div class="block__body">
+        <ol class="steps">
+          <li><b data-cz="Zadání" data-en="Brief">Zadání</b><span data-cz="Rozhovory s majitelem, zpětná vazba techniků, pilotní provoz u jednoho technika. Výsledkem je písemný plán v repozitáři." data-en="Talks with the owner, technicians' feedback, a pilot with one technician. The result is a written plan in the repository.">Rozhovory s majitelem, zpětná vazba techniků, pilotní provoz u jednoho technika. Výsledkem je písemný plán v repozitáři.</span></li>
+          <li><b data-cz="Návrh" data-en="Design">Návrh</b><span data-cz="HTML návrh obrazovky ve více šířkách telefonu a ve více variantách. Vyberu jednu, ta se implementuje." data-en="An HTML mock-up at several phone widths and in several variants. I pick one and it gets built.">HTML návrh obrazovky ve více šířkách telefonu a ve více variantách. Vyberu jednu, ta se implementuje.</span></li>
+          <li><b data-cz="Pravidla" data-en="Rules">Pravidla</b><span data-cz="Pevná pravidla v souboru AGENTS.md. Každé hlídá test, který při porušení selže. Hooky blokují rizikové příkazy a čtení tajných údajů." data-en="Hard rules in AGENTS.md. Each is checked by a test that fails on violation. Hooks block risky commands and reading secrets.">Pevná pravidla v souboru AGENTS.md. Každé hlídá test, který při porušení selže. Hooky blokují rizikové příkazy a čtení tajných údajů.</span></li>
+          <li><b data-cz="Implementace" data-en="Implementation">Implementace</b><span data-cz="Hlavní model integruje. Levnější podagenti pracují v izolovaných větvích. Do hlavní větve slučuje jen hlavní model po průchodu kontrolní bránou." data-en="The main model integrates. Cheaper subagents work in isolated branches. Only the main model merges to main, after passing a verification gate.">Hlavní model integruje. Levnější podagenti pracují v izolovaných větvích. Do hlavní větve slučuje jen hlavní model po průchodu kontrolní bránou.</span></li>
+          <li><b data-cz="Vydání" data-en="Release">Vydání</b><span data-cz="Do produkce nasazuji jen já. AI nemá přístup na server." data-en="Only I deploy to production. AI has no access to the server.">Do produkce nasazuji jen já. AI nemá přístup na server.</span></li>
+        </ol>
+        <figure class="code">
+          <figcaption class="lbl"><span>AGENTS.md</span><span data-cz="výňatek" data-en="excerpt">výňatek</span></figcaption>
+<pre><code><b>## Hard invariants</b>
+Each rule is enforced by a sentinel test or a skill gate.
+Breaking one is a blocker, not a trade-off.
+
+- <b>AuthN/AuthZ on every protected resource.</b> Every new endpoint
+  declares explicit auth dependencies or is listed in
+  PUBLIC_ALLOWLIST with an architectural rationale.
+  <span class="hl">Sentinel: tests/test_route_security_audit.py</span>
+- <b>Money is Decimal.</b> float for money is prohibited everywhere.
+  <span class="hl">Sentinel: tests/test_financial_architecture.py</span>
+- <b>Branch isolation.</b> Cross-branch leakage is a critical
+  security violation.
+- <b>No mass assignment.</b> Workflow transitions happen only through
+  dedicated, audited service operations.</code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <section class="block wrap" id="decisions">
+      <h2 class="block__h"><span class="mono">4</span><span class="lbl" data-cz="Rozhodnutí" data-en="Decisions">Rozhodnutí</span></h2>
+      <div class="block__body">
+        <h3 class="h3" data-cz="Stavební deník" data-en="The site diary">Stavební deník</h3>
+        <table class="rows rows--sod">
+          <tr><th data-cz="Situace" data-en="Situation">Situace</th><td data-cz="Stavební deník má právní váhu, takže zápis nesmí jít změnit bez stopy. Technici přitom potřebují psát průběžně a opravovat chyby." data-en="The site diary is legally binding, so an entry must not be changeable without a trace. Technicians still need to write as they go and fix mistakes.">Stavební deník má právní váhu, takže zápis nesmí jít změnit bez stopy. Technici přitom potřebují psát průběžně a opravovat chyby.</td></tr>
+          <tr><th data-cz="Možnosti" data-en="Options">Možnosti</th><td data-cz="Editovatelné zápisy s historií změn; tlačítko pro publikaci; nebo automatické zveřejnění konceptu a poté jen nové verze." data-en="Editable entries with a change history; a publish button; or automatic publication of a draft, then only new versions.">Editovatelné zápisy s historií změn; tlačítko pro publikaci; nebo automatické zveřejnění konceptu a poté jen nové verze.</td></tr>
+          <tr><th data-cz="Rozhodnutí" data-en="Decision">Rozhodnutí</th><td data-cz="Koncept se zveřejní automaticky v 7:00 ráno po posledních úpravách. Zveřejněný zápis je neměnný. Oprava se uloží jako nová úplná verze s odkazem na původní." data-en="A draft is published automatically at 7:00 the morning after its last edit. A published entry is immutable. A correction is saved as a new complete version linked to the original.">Koncept se zveřejní automaticky v 7:00 ráno po posledních úpravách. Zveřejněný zápis je neměnný. Oprava se uloží jako nová úplná verze s odkazem na původní.</td></tr>
+          <tr><th data-cz="Důsledek" data-en="Result">Důsledek</th><td data-cz="Historie je auditovatelná a zákazník vidí jen části označené jako veřejné. Cenou jsou dvě tabulky místo jedné a pravidlo, které musí hlídat testy." data-en="The history is auditable and the customer sees only the parts marked public. The cost is two tables instead of one and a rule that tests must guard.">Historie je auditovatelná a zákazník vidí jen části označené jako veřejné. Cenou jsou dvě tabulky místo jedné a pravidlo, které musí hlídat testy.</td></tr>
+        </table>
+        <ol class="cells" aria-label="Životní cyklus zápisu">
+          <li><span class="lbl" data-cz="Terén" data-en="Field">Terén</span><b data-cz="Fotky a poznámky" data-en="Photos and notes">Fotky a poznámky</b></li>
+          <li><span class="lbl" data-cz="Koncept" data-en="Draft">Koncept</span><b data-cz="Upravuje tým" data-en="Team edits">Upravuje tým</b></li>
+          <li class="is-on"><span class="lbl">07:00</span><b data-cz="Zveřejnění" data-en="Published">Zveřejnění</b></li>
+          <li><span class="lbl" data-cz="Zápis" data-en="Entry">Zápis</span><b data-cz="Neměnný" data-en="Immutable">Neměnný</b></li>
+          <li><span class="lbl" data-cz="Oprava" data-en="Correction">Oprava</span><b data-cz="Nová verze" data-en="New version">Nová verze</b></li>
+        </ol>
+
+        <h3 class="h3" data-cz="Další rozhodnutí" data-en="Other decisions">Další rozhodnutí</h3>
+        <table class="rows">
+          <tr><th><span data-cz="Bez nativní aplikace" data-en="No native app">Bez nativní aplikace</span><small class="mono" data-cz="22. 9. 2026" data-en="22 Sep 2026">22. 9. 2026</small></th><td data-cz="Zvažoval jsem Tauri, aby telefonní rozhraní mohlo použít materiál Liquid Glass z iOS. Apple ho na webu zpřístupňuje jen přes privátní API a CSS napodobenina funguje jen v Chromiu, tedy ne na iPhonu. Zůstali jsme u webu a PWA; řemeslník nic neinstaluje." data-en="I considered Tauri so the phone UI could use iOS's Liquid Glass material. On the web Apple exposes it only through a private API, and the CSS imitation works only in Chromium, so not on iPhone. We stayed with web and PWA; craftsmen install nothing.">Zvažoval jsem Tauri, aby telefonní rozhraní mohlo použít materiál Liquid Glass z iOS. Apple ho na webu zpřístupňuje jen přes privátní API a CSS napodobenina funguje jen v Chromiu, tedy ne na iPhonu. Zůstali jsme u webu a PWA; řemeslník nic neinstaluje.</td></tr>
+          <tr><th data-cz="Monolit" data-en="Monolith">Monolit</th><td data-cz="Systém používají desítky lidí najednou. Mikroslužby by přidaly distribuované transakce a síťovou latenci bez přínosu. ESD je jedna aplikace s oddělenými částmi." data-en="Dozens of people use the system at once. Microservices would add distributed transactions and network latency for no benefit. ESD is one application with separated parts.">Systém používají desítky lidí najednou. Mikroslužby by přidaly distribuované transakce a síťovou latenci bez přínosu. ESD je jedna aplikace s oddělenými částmi.</td></tr>
+          <tr><th data-cz="Rozpočty v euroCALC" data-en="Budgets stay in euroCALC">Rozpočty v euroCALC</th><td data-cz="Rozpočty dál počítá euroCALC 4. ESD od něj přebírá jen zákaznická schválení. Synchronizace je idempotentní a vratná." data-en="euroCALC 4 still computes budgets. ESD takes over only customer approvals. The sync is idempotent and reversible.">Rozpočty dál počítá euroCALC 4. ESD od něj přebírá jen zákaznická schválení. Synchronizace je idempotentní a vratná.</td></tr>
+          <tr><th><span>GDPR</span><small class="mono">11/2026</small></th><td data-cz="Před otevřením portálu zákazníkům se nic nemazalo. Nyní se e-maily s přihlašovacími kódy čistí po 2 hodinách, přihlašovací záznamy po 180 dnech a IP adresy po roce. Kontakt lze na žádost exportovat a vymazat." data-en="Before the portal opened to customers, nothing was deleted. Now emails with login codes are cleared after 2 hours, login records after 180 days and IP addresses after a year. A contact can be exported and erased on request.">Před otevřením portálu zákazníkům se nic nemazalo. Nyní se e-maily s přihlašovacími kódy čistí po 2 hodinách, přihlašovací záznamy po 180 dnech a IP adresy po roce. Kontakt lze na žádost exportovat a vymazat.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="block wrap" id="issues">
+      <h2 class="block__h"><span class="mono">5</span><span class="lbl" data-cz="Co nefungovalo" data-en="What didn't work">Co nefungovalo</span></h2>
+      <div class="block__body">
+        <p data-cz="Agenti opakovaně psali kód pro starší verze knihoven. Ve Svelte 5 například rozkládali reaktivní stav do proměnných a rozhraní se přestalo aktualizovat. Ruční opravy nestačily, chyba se vracela." data-en="Agents kept writing code for older library versions. In Svelte 5, for example, they destructured reactive state into variables and the UI stopped updating. Manual fixes weren't enough; the bug kept coming back.">Agenti opakovaně psali kód pro starší verze knihoven. Ve Svelte 5 například rozkládali reaktivní stav do proměnných a rozhraní se přestalo aktualizovat. Ruční opravy nestačily, chyba se vracela.</p>
+        <p data-cz="Proto vznikl registr chyb ai-gotchas.md. Každý záznam má příznak, chybný vzor, správný vzor a test. Agent, který narazí na novou chybu, ji musí do registru doplnit." data-en="So I set up a pitfall registry, ai-gotchas.md. Each entry has a symptom, the wrong pattern, the right pattern and a test. An agent that hits a new pitfall has to add it.">Proto vznikl registr chyb ai-gotchas.md. Každý záznam má příznak, chybný vzor, správný vzor a test. Agent, který narazí na novou chybu, ji musí do registru doplnit.</p>
+      </div>
+    </section>
+
+    <a class="nextp wrap" href="../cee/index.html">
+      <span class="lbl" data-cz="Další projekt" data-en="Next project">Další projekt</span>
+      <span class="nextp__t">Conlang Evolution Engine</span>
+    </a>
+
+
+    <footer class="foot wrap" id="contact">
+      <h2 class="block__h"><span class="lbl" data-cz="Kontakt" data-en="Contact">Kontakt</span></h2>
+      <div class="foot__body">
+        <a class="foot__mail" href="mailto:honza@vrzal.cz">honza@vrzal.cz</a>
+        <ul class="foot__links">
+          <li><a href="https://github.com/janvrzal" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/jan-vrzal" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/jan_vrzal" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <p class="foot__bottom lbl"><span>© 2026 Jan Vrzal</span><span><span data-cz="Praha" data-en="Prague">Praha</span> <span data-clock>--:--</span></span></p>
+    </footer>
+  </main>
+</body>
+</html>
